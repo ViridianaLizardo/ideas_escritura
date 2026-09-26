@@ -1,0 +1,1029 @@
+{
+  "_instrucciones": "Edita este archivo para cambiar opciones y reglas. Cada valor: id (único, sin espacios), t (etiqueta en la lista), f (frase que entra en la Idea), d (descripción opcional), w (peso opcional en el sorteo; 1 por defecto). Reglas: si {campo:[valores]} -> req {campo:[permitidos]} y/o no {campo:[excluidos]}, msg (texto que se muestra). wikipedia_respaldo: títulos que se usan si Wikipedia no responde. gutenberg_respaldo: libros que se usan si Gutendex no responde.",
+  "campos": [
+    {
+      "id": "persona",
+      "grupo": "A",
+      "nombre": "Persona gramatical",
+      "valores": [
+        {
+          "id": "1s",
+          "t": "Primera singular",
+          "f": "en primera persona del singular"
+        },
+        {
+          "id": "1p",
+          "t": "Primera plural («nosotros»)",
+          "f": "en primera persona del plural"
+        },
+        {
+          "id": "2",
+          "t": "Segunda («tú» / «usted»)",
+          "f": "en segunda persona"
+        },
+        {
+          "id": "3",
+          "t": "Tercera",
+          "f": "en tercera persona"
+        }
+      ]
+    },
+    {
+      "id": "narrador",
+      "grupo": "A",
+      "nombre": "Tipo de narrador",
+      "valores": [
+        {
+          "id": "omnisciente",
+          "t": "Omnisciente",
+          "f": "con un narrador omnisciente",
+          "d": "Lo sabe todo, incluidos los pensamientos de cualquier personaje."
+        },
+        {
+          "id": "limitado",
+          "t": "Limitado o focalizado",
+          "f": "con un narrador limitado a lo que sabe un solo personaje",
+          "d": "Solo sabe lo que sabe un personaje."
+        },
+        {
+          "id": "objetivo",
+          "t": "Objetivo o cámara",
+          "f": "con un narrador objetivo que solo registra lo que se ve y se oye",
+          "d": "Registra acciones y diálogos; no entra en ninguna mente."
+        },
+        {
+          "id": "protagonista",
+          "t": "Protagonista",
+          "f": "con el protagonista como narrador",
+          "d": "Cuenta su propia historia."
+        },
+        {
+          "id": "testigo",
+          "t": "Testigo",
+          "f": "con un narrador testigo de la historia de otro",
+          "d": "Presencia la historia de otra persona."
+        },
+        {
+          "id": "nofiable",
+          "t": "No fiable",
+          "f": "con un narrador no fiable",
+          "d": "Su versión de los hechos no merece toda la confianza del lector."
+        },
+        {
+          "id": "coral",
+          "t": "Coral o múltiple",
+          "f": "con varias voces que se turnan la narración",
+          "d": "Varias voces narran por turnos."
+        }
+      ]
+    },
+    {
+      "id": "tiempo",
+      "grupo": "A",
+      "nombre": "Tiempo verbal dominante",
+      "valores": [
+        {
+          "id": "pasado",
+          "t": "Pasado (pretérito e imperfecto)",
+          "f": "en pasado"
+        },
+        {
+          "id": "presente",
+          "t": "Presente",
+          "f": "en presente"
+        },
+        {
+          "id": "futuro",
+          "t": "Futuro",
+          "f": "en futuro",
+          "w": 0.25,
+          "d": "Difícil de sostener en un texto completo."
+        },
+        {
+          "id": "condicional",
+          "t": "Condicional",
+          "f": "en condicional",
+          "w": 0.25,
+          "d": "Difícil de sostener en un texto completo."
+        },
+        {
+          "id": "alterna",
+          "t": "Alternancia pasado / presente",
+          "f": "alternando pasado y presente"
+        }
+      ]
+    },
+    {
+      "id": "tecnica",
+      "grupo": "A",
+      "nombre": "Técnica de discurso",
+      "valores": [
+        {
+          "id": "convencional",
+          "t": "Narración convencional",
+          "f": "con narración convencional",
+          "d": "Un narrador cuenta los hechos y reproduce lo que dicen los personajes con guiones o comillas."
+        },
+        {
+          "id": "indirecto",
+          "t": "Estilo indirecto libre",
+          "f": "en estilo indirecto libre",
+          "d": "La voz del narrador se funde con la del personaje, sin comillas ni verbos de habla."
+        },
+        {
+          "id": "monologo",
+          "t": "Monólogo interior",
+          "f": "como monólogo interior",
+          "d": "El pensamiento del personaje, articulado y sin mediación."
+        },
+        {
+          "id": "flujo",
+          "t": "Flujo de conciencia",
+          "f": "como flujo de conciencia",
+          "d": "Pensamiento sin orden lógico: asociaciones, saltos, sintaxis rota."
+        },
+        {
+          "id": "dialogo",
+          "t": "Predominio de diálogo",
+          "f": "con predominio de diálogo",
+          "d": "La historia avanza sobre todo por lo que dicen los personajes; la narración es mínima."
+        },
+        {
+          "id": "sindialogo",
+          "t": "Sin diálogo",
+          "f": "sin ningún diálogo",
+          "d": "Nadie habla en escena; todo se cuenta a través de la narración."
+        }
+      ]
+    },
+    {
+      "id": "forma",
+      "grupo": "A",
+      "nombre": "Forma textual",
+      "valores": [
+        {
+          "id": "libre",
+          "t": "Narración libre",
+          "f": "como narración libre",
+          "d": "Prosa narrativa sin un formato documental específico."
+        },
+        {
+          "id": "epistolar",
+          "t": "Epistolar (cartas)",
+          "f": "en forma epistolar",
+          "d": "La historia se cuenta mediante cartas entre uno o varios personajes."
+        },
+        {
+          "id": "diario",
+          "t": "Diario",
+          "f": "como diario",
+          "d": "Entradas fechadas escritas por un personaje para sí mismo."
+        },
+        {
+          "id": "chat",
+          "t": "Mensajes o chat",
+          "f": "como conversación de mensajes",
+          "d": "Intercambio de mensajes breves, con remitentes y quizá horas."
+        },
+        {
+          "id": "transcripcion",
+          "t": "Transcripción o interrogatorio",
+          "f": "como transcripción de un interrogatorio o una grabación",
+          "d": "Registro literal de lo que se dijo, con los hablantes identificados."
+        },
+        {
+          "id": "expediente",
+          "t": "Expediente o informe",
+          "f": "como expediente o informe",
+          "d": "Documento oficial o técnico: apartados, datos, lenguaje institucional."
+        },
+        {
+          "id": "lista",
+          "t": "Lista",
+          "f": "como lista",
+          "d": "Elementos enumerados; la historia se deduce de lo que se incluye y en qué orden."
+        },
+        {
+          "id": "instructivo",
+          "t": "Instructivo",
+          "f": "como instructivo",
+          "d": "Pasos o indicaciones dirigidos al lector, en imperativo."
+        },
+        {
+          "id": "enciclopedia",
+          "t": "Entrada de enciclopedia",
+          "f": "como entrada de enciclopedia",
+          "d": "Tono expositivo e impersonal, como si el tema existiera y estuviera documentado."
+        },
+        {
+          "id": "resena",
+          "t": "Reseña",
+          "f": "como reseña",
+          "d": "Valoración crítica de una obra, un lugar o un objeto, reales o inventados."
+        },
+        {
+          "id": "receta",
+          "t": "Receta",
+          "f": "como receta",
+          "d": "Ingredientes y preparación; lo narrativo se cuela entre las instrucciones."
+        }
+      ]
+    },
+    {
+      "id": "estructura",
+      "grupo": "A",
+      "nombre": "Estructura temporal",
+      "valores": [
+        {
+          "id": "lineal",
+          "t": "Lineal",
+          "f": "con estructura lineal"
+        },
+        {
+          "id": "medias",
+          "t": "In medias res",
+          "f": "empezando in medias res",
+          "d": "Empieza a mitad de la acción."
+        },
+        {
+          "id": "retro",
+          "t": "Retrospectiva",
+          "f": "en retrospectiva",
+          "d": "Se narra desde después de los hechos, mirando atrás."
+        },
+        {
+          "id": "inversa",
+          "t": "Cronología inversa",
+          "f": "en cronología inversa",
+          "d": "Del final al principio."
+        },
+        {
+          "id": "circular",
+          "t": "Circular",
+          "f": "con estructura circular",
+          "d": "Termina donde empezó."
+        },
+        {
+          "id": "fragmentaria",
+          "t": "Fragmentaria",
+          "f": "en fragmentos"
+        },
+        {
+          "id": "tiemporeal",
+          "t": "Tiempo real",
+          "f": "en tiempo real",
+          "d": "Lo narrado dura lo mismo que la lectura."
+        }
+      ]
+    },
+    {
+      "id": "genero",
+      "grupo": "B",
+      "nombre": "Género",
+      "valores": [
+        {
+          "id": "realismo",
+          "t": "Realismo",
+          "f": "realista"
+        },
+        {
+          "id": "terror",
+          "t": "Terror",
+          "f": "de terror"
+        },
+        {
+          "id": "gotico",
+          "t": "Gótico",
+          "f": "gótico"
+        },
+        {
+          "id": "cf",
+          "t": "Ciencia ficción",
+          "f": "de ciencia ficción"
+        },
+        {
+          "id": "distopia",
+          "t": "Distopía",
+          "f": "distópico"
+        },
+        {
+          "id": "fantasia",
+          "t": "Fantasía",
+          "f": "de fantasía"
+        },
+        {
+          "id": "magico",
+          "t": "Realismo mágico",
+          "f": "de realismo mágico"
+        },
+        {
+          "id": "weird",
+          "t": "Lo raro (weird)",
+          "f": "de lo raro (weird fiction)"
+        },
+        {
+          "id": "policiaco",
+          "t": "Policiaco / noir",
+          "f": "policiaco o noir"
+        },
+        {
+          "id": "romance",
+          "t": "Romance",
+          "f": "romántico"
+        },
+        {
+          "id": "historico",
+          "t": "Histórico",
+          "f": "histórico"
+        },
+        {
+          "id": "western",
+          "t": "Western",
+          "f": "de western"
+        },
+        {
+          "id": "fabula",
+          "t": "Fábula",
+          "f": "a modo de fábula"
+        },
+        {
+          "id": "drama",
+          "t": "Drama doméstico",
+          "f": "de drama doméstico"
+        }
+      ]
+    },
+    {
+      "id": "tono",
+      "grupo": "B",
+      "nombre": "Tono",
+      "valores": [
+        {
+          "id": "trágico",
+          "t": "Trágico",
+          "f": "con tono trágico"
+        },
+        {
+          "id": "cómico",
+          "t": "Cómico",
+          "f": "con tono cómico"
+        },
+        {
+          "id": "irónico",
+          "t": "Irónico",
+          "f": "con tono irónico"
+        },
+        {
+          "id": "satírico",
+          "t": "Satírico",
+          "f": "con tono satírico"
+        },
+        {
+          "id": "absurdo",
+          "t": "Absurdo",
+          "f": "con tono absurdo"
+        },
+        {
+          "id": "melancólico",
+          "t": "Melancólico",
+          "f": "con tono melancólico"
+        },
+        {
+          "id": "nostálgico",
+          "t": "Nostálgico",
+          "f": "con tono nostálgico"
+        },
+        {
+          "id": "ominoso",
+          "t": "Ominoso",
+          "f": "con tono ominoso"
+        },
+        {
+          "id": "tenso",
+          "t": "Tenso",
+          "f": "con tono tenso"
+        },
+        {
+          "id": "lírico",
+          "t": "Lírico",
+          "f": "con tono lírico"
+        },
+        {
+          "id": "austero o seco",
+          "t": "Austero o seco",
+          "f": "con tono austero o seco"
+        },
+        {
+          "id": "íntimo",
+          "t": "Íntimo",
+          "f": "con tono íntimo"
+        },
+        {
+          "id": "clínico",
+          "t": "Clínico",
+          "f": "con tono clínico"
+        }
+      ]
+    },
+    {
+      "id": "ext",
+      "grupo": "D",
+      "nombre": "Extensión",
+      "valores": [
+        {
+          "id": "micro",
+          "t": "Microrrelato (menos de 500 palabras)",
+          "f": "un microrrelato (menos de 500 palabras)"
+        },
+        {
+          "id": "corto",
+          "t": "Cuento corto (500 a 1500 palabras)",
+          "f": "un cuento corto (500 a 1500 palabras)"
+        },
+        {
+          "id": "cuento",
+          "t": "Cuento (1500 a 3000 palabras)",
+          "f": "un cuento (1500 a 3000 palabras)"
+        },
+        {
+          "id": "largo",
+          "t": "Cuento largo (más de 3000 palabras)",
+          "f": "un cuento largo (más de 3000 palabras)"
+        }
+      ]
+    },
+    {
+      "id": "p_genero",
+      "grupo": "P",
+      "nombre": "Género",
+      "valores": [
+        {
+          "id": "mujer",
+          "t": "Mujer",
+          "f": "mujer"
+        },
+        {
+          "id": "hombre",
+          "t": "Hombre",
+          "f": "hombre"
+        },
+        {
+          "id": "nobinaria",
+          "t": "Persona no binaria",
+          "f": "persona no binaria"
+        },
+        {
+          "id": "indefinido",
+          "t": "Sin especificar",
+          "f": "de género no especificado",
+          "d": "El texto no revela el género del personaje."
+        }
+      ]
+    },
+    {
+      "id": "p_edad",
+      "grupo": "P",
+      "nombre": "Edad",
+      "valores": [
+        {
+          "id": "infancia",
+          "t": "Infancia (menos de 12)",
+          "f": "en la infancia (menos de 12 años)"
+        },
+        {
+          "id": "adolescencia",
+          "t": "Adolescencia (12 a 17)",
+          "f": "adolescente (12 a 17 años)"
+        },
+        {
+          "id": "juventud",
+          "t": "Juventud (18 a 29)",
+          "f": "joven (18 a 29 años)"
+        },
+        {
+          "id": "adultez",
+          "t": "Adultez (30 a 59)",
+          "f": "de edad adulta (30 a 59 años)"
+        },
+        {
+          "id": "vejez",
+          "t": "Vejez (60 o más)",
+          "f": "en la vejez (60 años o más)"
+        }
+      ]
+    },
+    {
+      "id": "p_rol",
+      "grupo": "P",
+      "nombre": "Papel en la historia",
+      "valores": [
+        {
+          "id": "protagonista",
+          "t": "Protagonista",
+          "f": "protagonista"
+        },
+        {
+          "id": "antagonista",
+          "t": "Antagonista",
+          "f": "antagonista"
+        },
+        {
+          "id": "secundario",
+          "t": "Secundario",
+          "f": "personaje secundario"
+        },
+        {
+          "id": "ausente",
+          "t": "Ausente",
+          "f": "personaje ausente, del que se habla pero que nunca aparece",
+          "d": "Pesa en la historia sin estar en escena."
+        }
+      ]
+    },
+    {
+      "id": "p_aparicion",
+      "grupo": "P",
+      "nombre": "Tiempo de aparición",
+      "valores": [
+        {
+          "id": "inicio",
+          "t": "Desde el inicio",
+          "f": "presente desde el inicio"
+        },
+        {
+          "id": "todo",
+          "t": "En todo el texto",
+          "f": "presente en todo el texto"
+        },
+        {
+          "id": "mitad",
+          "t": "A mitad del texto",
+          "f": "que aparezca a mitad del texto"
+        },
+        {
+          "id": "final",
+          "t": "Solo al final",
+          "f": "que aparezca solo al final"
+        },
+        {
+          "id": "intermitente",
+          "t": "De forma intermitente",
+          "f": "que aparezca de forma intermitente",
+          "d": "Entra y sale del texto."
+        },
+        {
+          "id": "menciones",
+          "t": "Solo en recuerdos o menciones",
+          "f": "que aparezca solo en recuerdos o menciones"
+        }
+      ]
+    },
+    {
+      "id": "p_efecto",
+      "grupo": "P",
+      "nombre": "Efecto en el lector",
+      "valores": [
+        {
+          "id": "agradable",
+          "t": "Agradable",
+          "f": "que resulte agradable al lector"
+        },
+        {
+          "id": "desagradable",
+          "t": "Desagradable",
+          "f": "que resulte desagradable al lector"
+        },
+        {
+          "id": "aburrido",
+          "t": "Aburrido",
+          "f": "que resulte aburrido al lector",
+          "d": "Un reto: hacer interesante un texto con un personaje que no lo es."
+        },
+        {
+          "id": "entranable",
+          "t": "Entrañable",
+          "f": "que resulte entrañable al lector"
+        },
+        {
+          "id": "inquietante",
+          "t": "Inquietante",
+          "f": "que resulte inquietante al lector"
+        },
+        {
+          "id": "ridiculo",
+          "t": "Ridículo",
+          "f": "que resulte ridículo al lector"
+        },
+        {
+          "id": "admirable",
+          "t": "Admirable",
+          "f": "que resulte admirable al lector"
+        },
+        {
+          "id": "lastimoso",
+          "t": "Lastimoso",
+          "f": "que despierte lástima en el lector"
+        },
+        {
+          "id": "irritante",
+          "t": "Irritante",
+          "f": "que resulte irritante al lector"
+        },
+        {
+          "id": "ambiguo",
+          "t": "Ambiguo",
+          "f": "que provoque en el lector sentimientos encontrados",
+          "d": "Ni simpatía ni rechazo claros."
+        }
+      ]
+    }
+  ],
+  "reglas": [
+    {
+      "si": {
+        "narrador": [
+          "omnisciente"
+        ]
+      },
+      "req": {
+        "persona": [
+          "3"
+        ]
+      },
+      "msg": "El narrador omnisciente va en tercera persona."
+    },
+    {
+      "si": {
+        "narrador": [
+          "protagonista"
+        ]
+      },
+      "req": {
+        "persona": [
+          "1s",
+          "1p",
+          "2"
+        ]
+      },
+      "msg": "El narrador protagonista cuenta su propia historia: primera o segunda persona."
+    },
+    {
+      "si": {
+        "narrador": [
+          "testigo"
+        ]
+      },
+      "req": {
+        "persona": [
+          "1s",
+          "1p"
+        ]
+      },
+      "msg": "El narrador testigo habla en primera persona."
+    },
+    {
+      "si": {
+        "narrador": [
+          "objetivo"
+        ]
+      },
+      "req": {
+        "persona": [
+          "3"
+        ]
+      },
+      "msg": "El narrador objetivo va en tercera persona."
+    },
+    {
+      "si": {
+        "narrador": [
+          "objetivo"
+        ]
+      },
+      "no": {
+        "tecnica": [
+          "indirecto",
+          "monologo",
+          "flujo"
+        ]
+      },
+      "msg": "El narrador objetivo no entra en ninguna mente: excluye estilo indirecto libre, monólogo interior y flujo de conciencia."
+    },
+    {
+      "si": {
+        "narrador": [
+          "limitado"
+        ]
+      },
+      "req": {
+        "persona": [
+          "2",
+          "3"
+        ]
+      },
+      "msg": "El narrador limitado va en segunda o tercera persona."
+    },
+    {
+      "si": {
+        "tecnica": [
+          "monologo",
+          "flujo"
+        ]
+      },
+      "req": {
+        "persona": [
+          "1s",
+          "2"
+        ]
+      },
+      "msg": "Monólogo interior y flujo de conciencia van en primera persona del singular o en segunda."
+    },
+    {
+      "si": {
+        "tecnica": [
+          "indirecto"
+        ]
+      },
+      "req": {
+        "persona": [
+          "3"
+        ]
+      },
+      "msg": "El estilo indirecto libre requiere tercera persona."
+    },
+    {
+      "si": {
+        "forma": [
+          "epistolar",
+          "diario",
+          "chat"
+        ]
+      },
+      "req": {
+        "persona": [
+          "1s",
+          "1p",
+          "2"
+        ]
+      },
+      "msg": "Cartas, diarios y chats se escriben en primera o segunda persona."
+    },
+    {
+      "si": {
+        "forma": [
+          "epistolar",
+          "diario",
+          "chat"
+        ]
+      },
+      "no": {
+        "narrador": [
+          "omnisciente",
+          "objetivo"
+        ]
+      },
+      "msg": "Cartas, diarios y chats los escribe alguien desde dentro: no admiten narrador omnisciente ni objetivo."
+    },
+    {
+      "si": {
+        "forma": [
+          "transcripcion"
+        ]
+      },
+      "req": {
+        "tecnica": [
+          "dialogo"
+        ]
+      },
+      "msg": "Una transcripción implica predominio de diálogo."
+    },
+    {
+      "si": {
+        "forma": [
+          "transcripcion"
+        ]
+      },
+      "no": {
+        "narrador": [
+          "omnisciente"
+        ]
+      },
+      "msg": "Una transcripción no admite narrador omnisciente."
+    },
+    {
+      "si": {
+        "p_rol": [
+          "ausente"
+        ]
+      },
+      "req": {
+        "p_aparicion": [
+          "menciones"
+        ]
+      },
+      "msg": "Un personaje ausente solo aparece en recuerdos o menciones."
+    },
+    {
+      "si": {
+        "p_aparicion": [
+          "menciones"
+        ]
+      },
+      "req": {
+        "p_rol": [
+          "ausente",
+          "secundario",
+          "antagonista"
+        ]
+      },
+      "msg": "Un personaje que solo aparece en menciones no puede ser el protagonista."
+    },
+    {
+      "si": {
+        "p_rol": [
+          "protagonista"
+        ]
+      },
+      "no": {
+        "p_aparicion": [
+          "final"
+        ]
+      },
+      "msg": "El protagonista no puede aparecer solo al final."
+    }
+  ],
+  "wikipedia_respaldo": [
+    "Axolote",
+    "Tardígrado",
+    "Faro de Alejandría",
+    "Teotihuacan",
+    "Eclipse solar",
+    "Mecanismo de Anticitera",
+    "Luciérnaga",
+    "Escarabajo pelotero",
+    "Nopal",
+    "Cenote",
+    "Aurora polar",
+    "Paricutín",
+    "Taxidermia",
+    "Herbario",
+    "Cartografía",
+    "Relojería",
+    "Astrolabio",
+    "Código Florentino",
+    "Biblioteca de Alejandría",
+    "Pirámide de Kukulcán",
+    "Mariposa monarca",
+    "Sequía",
+    "Niebla",
+    "Granizo",
+    "Tsunami",
+    "Terremoto de México de 1985",
+    "Cometa Halley",
+    "Voyager 1",
+    "Tren",
+    "Faro",
+    "Naufragio",
+    "Isla Clipperton",
+    "Desierto de Atacama",
+    "Fosa de las Marianas",
+    "Coral",
+    "Manglar",
+    "Colibrí",
+    "Quetzal",
+    "Jaguar",
+    "Cacao",
+    "Vainilla",
+    "Maíz",
+    "Obsidiana",
+    "Ámbar",
+    "Fósil",
+    "Mamut",
+    "Dodo",
+    "Tilacino",
+    "Ornitorrinco",
+    "Pulpo",
+    "Medusa",
+    "Bioluminiscencia",
+    "Hongo",
+    "Liquen",
+    "Musgo",
+    "Semilla",
+    "Invernadero",
+    "Apicultura",
+    "Seda",
+    "Amate",
+    "Imprenta",
+    "Máquina de escribir",
+    "Telégrafo",
+    "Radio (medio de comunicación)",
+    "Fonógrafo",
+    "Daguerrotipo",
+    "Cinematógrafo",
+    "Calendario maya",
+    "Juego de pelota mesoamericano",
+    "Lotería mexicana",
+    "Día de Muertos",
+    "Alebrije",
+    "Papel picado",
+    "Mezcal",
+    "Pulque",
+    "Chinampa",
+    "Trajinera",
+    "Palimpsesto",
+    "Cuaderno de bitácora",
+    "Mapa",
+    "Brújula",
+    "Espejo",
+    "Laberinto",
+    "Autómata",
+    "Sonambulismo",
+    "Insomnio",
+    "Nostalgia",
+    "Eco",
+    "Sombra",
+    "Espantapájaros"
+  ],
+  "gutenberg_respaldo": [
+    {
+      "titulo": "Don Quijote",
+      "autor": "Miguel de Cervantes"
+    },
+    {
+      "titulo": "Novelas ejemplares",
+      "autor": "Miguel de Cervantes"
+    },
+    {
+      "titulo": "La Celestina",
+      "autor": "Fernando de Rojas"
+    },
+    {
+      "titulo": "Lazarillo de Tormes",
+      "autor": "Anónimo"
+    },
+    {
+      "titulo": "Doña Perfecta",
+      "autor": "Benito Pérez Galdós"
+    },
+    {
+      "titulo": "Marianela",
+      "autor": "Benito Pérez Galdós"
+    },
+    {
+      "titulo": "Pepita Jiménez",
+      "autor": "Juan Valera"
+    },
+    {
+      "titulo": "El sombrero de tres picos",
+      "autor": "Pedro Antonio de Alarcón"
+    },
+    {
+      "titulo": "Leyendas",
+      "autor": "Gustavo Adolfo Bécquer"
+    },
+    {
+      "titulo": "La gaviota",
+      "autor": "Fernán Caballero"
+    },
+    {
+      "titulo": "María",
+      "autor": "Jorge Isaacs"
+    },
+    {
+      "titulo": "Azul",
+      "autor": "Rubén Darío"
+    },
+    {
+      "titulo": "Niebla",
+      "autor": "Miguel de Unamuno"
+    },
+    {
+      "titulo": "Cuentos de amor de locura y de muerte",
+      "autor": "Horacio Quiroga"
+    },
+    {
+      "titulo": "Los de abajo",
+      "autor": "Mariano Azuela"
+    },
+    {
+      "titulo": "La barraca",
+      "autor": "Vicente Blasco Ibáñez"
+    },
+    {
+      "titulo": "Sonata de otoño",
+      "autor": "Ramón del Valle-Inclán"
+    },
+    {
+      "titulo": "Fortunata y Jacinta",
+      "autor": "Benito Pérez Galdós"
+    },
+    {
+      "titulo": "El Periquillo Sarniento",
+      "autor": "José Joaquín Fernández de Lizardi"
+    },
+    {
+      "titulo": "Tradiciones peruanas",
+      "autor": "Ricardo Palma"
+    }
+  ]
+}

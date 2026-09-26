@@ -3,7 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Máquina de consignas</title>
+<title>Máquina de Ideación</title>
+<meta name="description" content="Genera ideas para escribir: combina técnica narrativa, género, tono, extensión y personaje, con detonadores creativos de Wikipedia y Wikimedia Commons.">
+<meta name="author" content="Viridiana Lizardo">
+<meta name="theme-color" content="#020503">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23020503'/%3E%3Ctext x='50' y='54' font-size='78' text-anchor='middle' dominant-baseline='middle' fill='%2300FF41'%3E%E2%9C%B5%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://viridianalizardo.github.io/ideas_escritura/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Máquina de Ideación">
+<meta property="og:title" content="Máquina de Ideación">
+<meta property="og:description" content="Genera ideas para escribir: combina técnica narrativa, género, tono, extensión y personaje, con detonadores creativos de Wikipedia y Wikimedia Commons.">
+<meta property="og:url" content="https://viridianalizardo.github.io/ideas_escritura/">
+<meta property="og:image" content="https://viridianalizardo.github.io/ideas_escritura/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Máquina de Ideación: generador de ideas de escritura creativa">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Máquina de Ideación">
+<meta name="twitter:description" content="Genera ideas para escribir: combina técnica narrativa, género, tono, extensión y personaje, con detonadores creativos de Wikipedia y Wikimedia Commons.">
+<meta name="twitter:image" content="https://viridianalizardo.github.io/ideas_escritura/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -36,6 +55,7 @@ h1 .cursor{display:inline-block;width:.5em;height:.9em;background:var(--green);v
 .lede{margin:.8rem 0 0;color:var(--muted);max-width:62ch}
 .lede b{color:var(--ink);font-weight:500}
 
+main{display:flex;flex-direction:column;gap:36px}
 .grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:32px;align-items:start}
 @media (max-width:880px){.grid{grid-template-columns:minmax(0,1fr)}}
 
@@ -43,7 +63,7 @@ h1 .cursor{display:inline-block;width:.5em;height:.9em;background:var(--green);v
 .card-col{display:flex;flex-direction:column;gap:14px}
 
 /* Detonadores de ideas */
-.detonadores{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+.detonadores{display:flex;flex-direction:column;gap:12px}
 .detonadores h2{font:400 1rem/1.2 var(--f-display);letter-spacing:.06em;color:var(--green);border-bottom:1px solid var(--line);padding-bottom:6px}
 .det{background:var(--surface);border:1px solid var(--line);padding:12px 14px;display:flex;flex-direction:column;gap:8px}
 .det-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
@@ -108,9 +128,8 @@ button{font:inherit;cursor:pointer}
 .grupo > .panel{padding-top:12px}
 
 /* Consignas guardadas */
-.guardadas{display:flex;flex-direction:column;gap:12px;margin-top:14px}
-.guardadas-head{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:6px}
-.guardadas-head h2{font:400 1rem/1.2 var(--f-display);letter-spacing:.06em;color:var(--green)}
+.guardadas{display:flex;flex-direction:column;gap:12px}
+.guardadas-bar{display:flex;justify-content:flex-end}
 .lista-g{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .g{background:var(--surface);border:1px solid var(--line);padding:12px 14px;display:flex;flex-direction:column;gap:8px}
 .g-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
@@ -136,7 +155,39 @@ select:hover{border-color:var(--green-dim)}
 .lock[aria-pressed="true"] .closed{display:block}
 .lock[aria-pressed="true"] .open{display:none}
 .def{margin:0;font-size:.76rem;color:var(--muted)}
-footer{color:var(--muted);font-size:.76rem;border-top:1px solid var(--line);padding-top:12px}
+footer{color:var(--muted);font-size:.78rem;border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+footer p{margin:0}
+footer .creditos{color:var(--ink)}
+footer .sep{color:var(--line);margin-inline:.4em}
+.lateral{display:flex;flex-direction:column;gap:24px}
+.como{font-size:.84rem;color:var(--muted);max-width:75ch}
+.como ol{margin:0;padding-left:1.3rem;display:flex;flex-direction:column;gap:6px}
+.como b{color:var(--ink);font-weight:500}
+.compartir-wrap > summary h2{font-size:.9rem}
+
+/* Compartir */
+.compartir{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:.76rem;color:var(--muted);padding-top:10px}
+a.btn{text-decoration:none;display:inline-block}
+.compartir .btn.mini[data-tip]::after{left:0;right:auto}
+.wrap{overflow-x:clip}
+
+/* Impresión / PDF: fondo blanco, sin controles */
+.solo-print{display:none}
+@media print{
+  :root{--bg:#fff;--surface:#fff;--ink:#000;--muted:#333;--line:#999;--green:#000;--green-dim:#333}
+  body{padding:0;font-size:11pt}
+  #lluvia,.cursor,.lede,.controls,.lateral,.actions,.compartir-wrap,.como-wrap,.btn,#aviso,.tags,footer{display:none!important}
+  .grid{display:block}
+  h1{text-shadow:none;font-size:22pt}
+  .masthead{padding-block:0 8pt}
+  .ficha,.det{border:1px solid #999;break-inside:avoid}
+  .consigna::before{content:""}
+  .det-img{max-height:200px;background:#fff}
+  .det-body a::after{content:" (" attr(href) ")";font-size:8pt;color:#333;word-break:break-all}
+  .det-body small{display:none}
+  .solo-print{display:block;font-size:8pt;color:#333;margin-top:8pt;word-break:break-all}
+  a{color:#000}
+}
 </style>
 </head>
 <body>
@@ -144,28 +195,57 @@ footer{color:var(--muted);font-size:.76rem;border-top:1px solid var(--line);padd
   <header class="masthead">
     <canvas id="lluvia" aria-hidden="true"></canvas>
     <div>
-      <h1>Máquina de consignas<span class="cursor" aria-hidden="true"></span></h1>
-      <p class="lede">Sortea combinaciones de <b>técnica narrativa</b>, <b>género</b>, <b>tono</b>, <b>extensión</b> y <b>personaje</b>. Debajo encontrarás detonadores de ideas: un artículo de Wikipedia, una imagen de Wikimedia Commons y un libro de Project Gutenberg. Fija con el candado los campos que quieras conservar y vuelve a sortear el resto.</p>
+      <h1>Máquina de Ideación<span class="cursor" aria-hidden="true"></span></h1>
+      <p class="lede">Aleatoriza combinaciones de <b>técnica narrativa</b>, <b>género</b>, <b>tono</b>, <b>extensión</b> y <b>personaje</b> para escribir, con detonadores creativos de Wikipedia y Wikimedia Commons.</p>
     </div>
   </header>
 
-  <main class="grid">
-    <section class="card-col" aria-label="Consigna">
-      <article class="ficha">
-        <div class="ficha-head"><span>Consigna</span><span id="num">Nº 001</span></div>
-        <p class="consigna" id="consigna" aria-live="polite">Cargando opciones…</p>
-        <ul class="tags" id="tags"></ul>
-        <div id="aviso"></div>
-      </article>
-      <div class="actions">
-        <button class="btn primary" id="btnSortear" type="button" data-tip="Genera una consigna y detonadores nuevos; los campos con candado se conservan">Sortear</button>
-        <button class="btn" id="btnCopiar" type="button" data-tip="Copia la consigna y los detonadores al portapapeles, con sus enlaces">Copiar</button>
-        <button class="btn" id="btnGuardar" type="button" data-tip="Guarda la consigna y sus detonadores en la lista de abajo, en este navegador">Guardar</button>
-        <button class="btn" id="btnSoltar" type="button" data-tip="Quita todos los candados para que el próximo sorteo cambie todos los campos">Soltar todo</button>
-      </div>
+  <details class="grupo como-wrap">
+    <summary><h2>Cómo usar</h2></summary>
+    <div class="panel como">
+      <ol>
+        <li><b>Aleatorizar</b> genera una idea nueva y cambia los detonadores creativos.</li>
+        <li>Abre los campos (A–D) para ver cada opción con su descripción. Elige un valor en su lista o pulsa el <b>candado</b> para fijarlo: los campos fijados se conservan al aleatorizar.</li>
+        <li>En <b>Modo</b> eliges entre <b>coherente</b>, que solo combina opciones compatibles, y <b>caos</b>, que ignora las reglas y marca las combinaciones imposibles como reto.</li>
+        <li>Los <b>detonadores creativos</b> son un artículo de Wikipedia y una imagen de Wikimedia Commons al azar. Úsalos como punto de partida o ignóralos; cada uno se cambia con su botón.</li>
+        <li><b>Guardar</b> conserva la idea en <b>Ideas guardadas</b>, solo en este navegador. <b>Compartir</b> genera un enlace que abre la misma idea, o la envía por WhatsApp, Telegram, correo o redes, o la imprime como PDF.</li>
+      </ol>
+    </div>
+  </details>
 
-      <div class="detonadores" aria-label="Detonadores de ideas">
-        <h2>Detonadores de ideas</h2>
+  <main>
+    <div class="grid">
+      <section class="card-col" aria-label="Idea">
+        <article class="ficha">
+          <div class="ficha-head"><span>Idea</span><span id="num">Nº 001</span></div>
+          <p class="consigna" id="consigna" aria-live="polite">Cargando opciones…</p>
+          <ul class="tags" id="tags"></ul>
+          <div id="aviso"></div>
+          <p class="solo-print" id="printEnlace"></p>
+        </article>
+        <div class="actions">
+          <button class="btn primary" id="btnSortear" type="button" data-tip="Genera una idea y detonadores nuevos; los campos con candado se conservan">Aleatorizar</button>
+          <button class="btn" id="btnCopiar" type="button" data-tip="Copia la idea y los detonadores al portapapeles, con sus enlaces">Copiar</button>
+          <button class="btn" id="btnGuardar" type="button" data-tip="Guarda la idea y sus detonadores en «Ideas guardadas», en este navegador">Guardar</button>
+          <button class="btn" id="btnSoltar" type="button" data-tip="Quita todos los candados para que la próxima idea cambie todos los campos">Soltar todo</button>
+        </div>
+        <details class="grupo compartir-wrap">
+          <summary><h2>Compartir</h2></summary>
+          <div class="compartir">
+            <button class="btn mini" type="button" id="btnEnlace" data-tip="Copia un enlace que abre esta misma idea con sus detonadores">Copiar enlace</button>
+            <button class="btn mini" type="button" id="btnShare" hidden data-tip="Abre el menú para compartir de tu dispositivo">Compartir…</button>
+            <a class="btn mini" id="shWhatsapp" target="_blank" rel="noopener" data-tip="Enviar por WhatsApp">WhatsApp</a>
+            <a class="btn mini" id="shTelegram" target="_blank" rel="noopener" data-tip="Enviar por Telegram">Telegram</a>
+            <a class="btn mini" id="shCorreo" target="_blank" rel="noopener" data-tip="Abrir un correo con la idea">Correo</a>
+            <a class="btn mini" id="shX" target="_blank" rel="noopener" data-tip="Publicar el enlace en X (el texto completo no cabe)">X</a>
+            <a class="btn mini" id="shBluesky" target="_blank" rel="noopener" data-tip="Publicar el enlace en Bluesky (el texto completo no cabe)">Bluesky</a>
+            <button class="btn mini" type="button" id="btnImprimir" data-tip="Imprime la idea o guárdala como PDF desde el diálogo de impresión">Imprimir / PDF</button>
+          </div>
+        </details>
+      </section>
+
+      <section class="detonadores" aria-label="Detonadores creativos">
+        <h2>Detonadores creativos</h2>
         <div class="det">
           <div class="det-head"><span>Artículo · Wikipedia</span><button class="btn mini" type="button" id="otroWiki" data-tip="Cambia solo el artículo">Otro</button></div>
           <p class="det-body" id="detWiki"></p>
@@ -174,61 +254,71 @@ footer{color:var(--muted);font-size:.76rem;border-top:1px solid var(--line);padd
           <div class="det-head"><span>Imagen · Wikimedia Commons</span><button class="btn mini" type="button" id="otroImg" data-tip="Cambia solo la imagen">Otra</button></div>
           <div id="detImg"></div>
         </div>
-        <div class="det">
-          <div class="det-head"><span>Libro · Project Gutenberg</span><button class="btn mini" type="button" id="otroLibro" data-tip="Cambia solo el libro">Otro</button></div>
-          <p class="det-body" id="detLibro"></p>
-        </div>
-      </div>
+      </section>
+    </div>
 
-      <div class="guardadas" aria-label="Consignas guardadas">
-        <div class="guardadas-head">
-          <h2>Consignas guardadas</h2>
-          <button class="btn mini" type="button" id="btnDescargar" data-tip="Descarga todas las consignas guardadas como archivo de texto">Descargar .txt</button>
-        </div>
-        <ul class="lista-g" id="listaG"></ul>
-        <p class="vacio" id="notaG"></p>
-      </div>
-    </section>
-
-    <section class="controls" aria-label="Campos">
-      <div class="panel">
-        <h2>Modo</h2>
-        <div class="modos" role="radiogroup" aria-label="Modo de sorteo">
-          <div class="modo">
-            <input type="radio" name="modo" id="modoCoherente" value="coherente" checked>
-            <label for="modoCoherente"><strong>Coherente</strong><span>Aplica las reglas de compatibilidad: persona, narrador, técnica y forma siempre pueden convivir en el mismo texto. Si fijas campos incompatibles, te avisa.</span></label>
+    <div class="grid">
+      <section class="controls" aria-label="Campos">
+        <details class="grupo"><summary><h2>A · Técnica narrativa</h2><span class="resumen">6 campos</span></summary><div class="panel" id="grupoA"></div></details>
+        <details class="grupo"><summary><h2>B · Género y tono</h2><span class="resumen">2 campos</span></summary><div class="panel" id="grupoB"></div></details>
+        <details class="grupo"><summary><h2>C · Extensión</h2><span class="resumen">1 campo</span></summary><div class="panel" id="grupoD"></div></details>
+        <details class="grupo"><summary><h2>D · Personaje</h2><span class="resumen">5 campos</span></summary>
+          <div class="panel">
+            <label class="switch"><input type="checkbox" id="swPersonaje" checked> Incluir un personaje en la idea</label>
+            <div class="panel" id="grupoP"></div>
           </div>
-          <div class="modo">
-            <input type="radio" name="modo" id="modoCaos" value="caos">
-            <label for="modoCaos"><strong>Caos</strong><span>Sortea cada campo por separado, sin reglas y con la misma probabilidad para todas las opciones. Pueden salir combinaciones imposibles, que se marcan como reto.</span></label>
-          </div>
-        </div>
-        <details class="reglas">
-          <summary>Reglas de compatibilidad del modo coherente</summary>
-          <ul id="listaReglas"></ul>
         </details>
-      </div>
-      <details class="grupo"><summary><h2>A · Técnica narrativa</h2><span class="resumen">6 campos</span></summary><div class="panel" id="grupoA"></div></details>
-      <details class="grupo"><summary><h2>B · Género y tono</h2><span class="resumen">2 campos</span></summary><div class="panel" id="grupoB"></div></details>
-      <details class="grupo"><summary><h2>C · Extensión</h2><span class="resumen">1 campo</span></summary><div class="panel" id="grupoD"></div></details>
-      <details class="grupo"><summary><h2>D · Personaje</h2><span class="resumen" id="resumenP">5 campos</span></summary>
-        <div class="panel">
-          <label class="switch"><input type="checkbox" id="swPersonaje" checked> Incluir un personaje en la consigna</label>
-          <div class="panel" id="grupoP"></div>
-        </div>
-      </details>
-    </section>
+      </section>
+
+      <section class="lateral">
+        <details class="grupo">
+          <summary><h2>Modo</h2><span class="resumen" id="resumenModo">Coherente</span></summary>
+          <div class="panel">
+            <div class="modos" role="radiogroup" aria-label="Modo">
+              <div class="modo">
+                <input type="radio" name="modo" id="modoCoherente" value="coherente" checked>
+                <label for="modoCoherente"><strong>Coherente</strong><span>Aplica las reglas de compatibilidad: persona, narrador, técnica y forma siempre pueden convivir en el mismo texto. Si fijas campos incompatibles, te avisa.</span></label>
+              </div>
+              <div class="modo">
+                <input type="radio" name="modo" id="modoCaos" value="caos">
+                <label for="modoCaos"><strong>Caos</strong><span>Elige cada campo por separado, sin reglas y con la misma probabilidad para todas las opciones. Pueden salir combinaciones imposibles, que se marcan como reto.</span></label>
+              </div>
+            </div>
+            <details class="reglas">
+              <summary>Reglas de compatibilidad del modo coherente</summary>
+              <ul id="listaReglas"></ul>
+            </details>
+          </div>
+        </details>
+
+        <details class="grupo">
+          <summary><h2>Ideas guardadas</h2><span class="resumen" id="resumenG">0</span></summary>
+          <div class="panel guardadas">
+            <div class="guardadas-bar"><button class="btn mini" type="button" id="btnDescargar" data-tip="Descarga todas las ideas guardadas como archivo de texto">Descargar .txt</button></div>
+            <ul class="lista-g" id="listaG"></ul>
+            <p class="vacio" id="notaG"></p>
+          </div>
+        </details>
+      </section>
+    </div>
   </main>
-  <footer>Las opciones, descripciones y reglas están en <code>consignas.json</code>; edítalas ahí.</footer>
+
+  <footer>
+    <p class="creditos">Creada por Viridiana Lizardo<span class="sep">·</span><a href="https://github.com/ViridianaLizardo" target="_blank" rel="noopener">GitHub</a><span class="sep">·</span><a id="correo" href="#">Correo</a></p>
+    <p>Desarrollada con la asistencia de Claude (Anthropic).</p>
+    <p><a href="https://github.com/ViridianaLizardo/ideas_escritura/blob/main/LICENSE" target="_blank" rel="noopener">Licencia MIT</a><span class="sep">·</span><a href="https://github.com/ViridianaLizardo/ideas_escritura/issues" target="_blank" rel="noopener">Sugerencias y errores</a><span class="sep">·</span><a href="https://github.com/ViridianaLizardo/ideas_escritura" target="_blank" rel="noopener">Código fuente</a></p>
+  </footer>
 </div>
 
 <script>
-const ARCHIVO_DATOS = "consignas.json";
+const ARCHIVO_DATOS = "ideas.json";
+// Contador de visitas GoatCounter (sin cookies). Escribe aquí tu código de goatcounter.com para activarlo, p. ej. "maquina-ideacion".
+const GOATCOUNTER = "";
 const WIKI_API = "https://es.wikipedia.org/api/rest_v1/page/random/summary";
 
 let DATOS, campo;
 const valor = (cid, vid) => campo[cid].valores.find(v => v.id === vid);
-const state = { sel:{}, locked:{}, modo:"coherente", usePersonaje:true, wiki:undefined, img:undefined, libro:undefined, n:1, animando:false };
+const state = { sel:{}, locked:{}, modo:"coherente", usePersonaje:true, wiki:undefined, img:undefined, n:1, animando:false };
 const $ = id => document.getElementById(id);
 const activos = () => DATOS.campos.filter(c => c.grupo !== "P" || state.usePersonaje).map(c => c.id);
 const soloActivos = sel => Object.fromEntries(activos().map(c => [c, sel[c]]));
@@ -315,37 +405,66 @@ async function nuevaImagen(){
   renderDet();
 }
 
-// Libro aleatorio en español de Project Gutenberg (vía Gutendex)
-const GUTENDEX = "https://gutendex.com/books/?languages=es";
-let gutCount = null;
-function autorLegible(a){ return a ? a.name.split(", ").reverse().join(" ") : "Autor desconocido"; }
-async function nuevoLibro(){
-  state.libro = undefined; renderDet();
-  try {
-    if (gutCount === null) gutCount = (await conTiempo(GUTENDEX)).count;
-    const pagina = 1 + Math.floor(Math.random() * Math.ceil(gutCount / 32));
-    const res = (await conTiempo(GUTENDEX + "&page=" + pagina)).results;
-    const b = res[Math.floor(Math.random() * res.length)];
-    state.libro = { title: b.title, autor: autorLegible(b.authors?.[0]), url: "https://www.gutenberg.org/ebooks/" + b.id };
-  } catch (e) {
-    const lista = DATOS.gutenberg_respaldo || [];
-    const b = lista[Math.floor(Math.random() * lista.length)];
-    state.libro = b ? { title: b.titulo, autor: b.autor, url: "https://www.gutenberg.org/ebooks/search/?query=" + encodeURIComponent(b.titulo + " " + b.autor) } : null;
-  }
-  renderDet();
+/* Enlace permanente: ?c=<estado en base64url> */
+const b64enc = str => btoa(String.fromCharCode(...new TextEncoder().encode(str))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+const b64dec = str => new TextDecoder().decode(Uint8Array.from(atob(str.replace(/-/g, "+").replace(/_/g, "/")), ch => ch.charCodeAt(0)));
+function enlacePermanente(){
+  const estado = { v:1, s: soloActivos(state.sel), p: state.usePersonaje ? 1 : 0, n: state.n,
+    w: state.wiki ? state.wiki.title : null, i: state.img?.title ? { title: state.img.title, src: state.img.src, url: state.img.url } : null };
+  return location.origin + location.pathname + "?c=" + b64enc(JSON.stringify(estado));
 }
+function cargarDesdeEnlace(){
+  const c = new URLSearchParams(location.search).get("c");
+  if (!c) return false;
+  try {
+    const e = JSON.parse(b64dec(c));
+    state.usePersonaje = !!e.p; $("swPersonaje").checked = state.usePersonaje;
+    for (const [cid, vid] of Object.entries(e.s || {})) if (campo[cid] && valor(cid, vid)) state.sel[cid] = vid;
+    sortear(true);                       // completa campos faltantes o inválidos
+    state.n = Number(e.n) || 1;
+    state.wiki = e.w ? (typeof e.w === "string" ? { title: e.w, url: wikiUrl(e.w) } : e.w) : null; state.img = e.i || { title:null, src:null, url: COMMONS_RANDOM };
+    render(); renderDet();
+    history.replaceState(null, "", location.pathname);   // la siguiente idea no arrastra el enlace
+    return true;
+  } catch { return false; }
+}
+
+/* Compartir */
+function actualizarCompartir(){
+  if (!DATOS || state.wiki === undefined || state.img === undefined) return;
+  const url = enlacePermanente(), texto = textoCompleto(textoConsigna(false), detonadoresActuales());
+  const corto = "Una idea para escribir, de la Máquina de Ideación:";
+  const enc = encodeURIComponent;
+  $("shWhatsapp").href = "https://wa.me/?text=" + enc(texto + "\n\n" + url);
+  $("shTelegram").href = "https://t.me/share/url?url=" + enc(url) + "&text=" + enc(texto);
+  $("shCorreo").href = "mailto:?subject=" + enc("Idea para escribir") + "&body=" + enc(texto + "\n\n" + url);
+  $("shX").href = "https://twitter.com/intent/tweet?text=" + enc(corto) + "&url=" + enc(url);
+  $("shBluesky").href = "https://bsky.app/intent/compose?text=" + enc(corto + " " + url);
+  $("printEnlace").textContent = "Enlace a esta idea: " + url;
+}
+$("btnShare").hidden = !navigator.share;
+$("btnShare").addEventListener("click", async () => {
+  try { await navigator.share({ title: "Idea para escribir", text: textoCompleto(textoConsigna(false), detonadoresActuales()), url: enlacePermanente() }); } catch {}
+});
+$("btnEnlace").addEventListener("click", async () => {
+  const b = $("btnEnlace");
+  try { await navigator.clipboard.writeText(enlacePermanente()); b.textContent = "Enlace copiado"; }
+  catch { b.textContent = "No se pudo copiar"; }
+  setTimeout(() => b.textContent = "Copiar enlace", 1600);
+});
+$("btnImprimir").addEventListener("click", () => { actualizarCompartir(); window.print(); });
 
 const enlace = (url, txt) => `<a href="${esc(url)}" target="_blank" rel="noopener">${txt}</a>`;
 function renderDet(){
   const cargando = `<span class="cargando">Buscando…</span>`;
-  const w = state.wiki, im = state.img, lb = state.libro;
+  const w = state.wiki, im = state.img;
   $("detWiki").innerHTML = w === undefined ? cargando : w ? enlace(w.url, "«" + esc(w.title) + "»") : "Sin artículo disponible.";
   $("detImg").innerHTML = im === undefined ? `<p class="det-body">${cargando}</p>`
     : im.src ? `<a href="${esc(im.url)}" target="_blank" rel="noopener"><img class="det-img" src="${esc(im.src)}" alt="${esc(im.title)}" loading="lazy"></a><p class="det-body">${enlace(im.url, esc(im.title))}<small>Autoría y licencia en la página del archivo.</small></p>`
     : `<p class="det-body">${enlace(im.url, "Abrir una imagen aleatoria en Commons")}<small>La vista previa solo se muestra en la página publicada en GitHub.</small></p>`;
-  $("detLibro").innerHTML = lb === undefined ? cargando : lb ? `${enlace(lb.url, "«" + esc(lb.title) + "»")}<small>${esc(lb.autor)}</small>` : "Sin libro disponible.";
+  actualizarCompartir();
 }
-function nuevosDetonadores(){ nuevoWiki(); nuevaImagen(); nuevoLibro(); }
+function nuevosDetonadores(){ nuevoWiki(); nuevaImagen(); }
 
 function esc(s){ return String(s).replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch])); }
 
@@ -402,13 +521,14 @@ function render(){
   if (!state.animando) $("consigna").innerHTML = textoConsigna(true);
   $("tags").innerHTML = activos().map(c => `<li class="${state.locked[c] ? "fixed" : ""}">${esc(valor(c, state.sel[c]).t)}</li>`).join("");
 
+  actualizarCompartir();
   const v = violaciones(soloActivos(state.sel)), av = $("aviso");
   if (!v.length) av.innerHTML = "";
   else if (state.modo === "caos") av.innerHTML = `<div class="aviso caos">Combinación imposible, a propósito:<ul>${v.map(m => `<li>${esc(m)}</li>`).join("")}</ul></div>`;
   else av.innerHTML = `<div class="aviso">Los campos fijados son incompatibles. Suelta alguno o cambia a modo caos:<ul>${v.map(m => `<li>${esc(m)}</li>`).join("")}</ul></div>`;
 }
 
-/* Efecto de descifrado al sortear */
+/* Efecto de descifrado al aleatorizar */
 const GLIFOS = "アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEFZ:.=*+<>";
 const sinMovimiento = matchMedia("(prefers-reduced-motion: reduce)").matches;
 function descifrar(){
@@ -452,8 +572,7 @@ function lluvia(){
 $("btnSortear").addEventListener("click", () => { state.n++; sortear(); descifrar(); nuevosDetonadores(); });
 $("otroWiki").addEventListener("click", nuevoWiki);
 $("otroImg").addEventListener("click", nuevaImagen);
-$("otroLibro").addEventListener("click", nuevoLibro);
-/* Consignas guardadas (localStorage de este navegador) */
+/* Ideas guardadas (localStorage de este navegador; la clave conserva el nombre original para no perder lo ya guardado) */
 const CLAVE_G = "maquina-consignas:guardadas";
 let guardadas = [], almacenOk = true;
 try { guardadas = JSON.parse(localStorage.getItem(CLAVE_G) || "[]"); } catch { almacenOk = false; guardadas = []; }
@@ -462,7 +581,6 @@ function detonadoresActuales(){
   const d = {};
   if (state.wiki) d.wiki = { title: state.wiki.title, url: state.wiki.url };
   if (state.img?.title) d.img = { title: state.img.title, url: state.img.url };
-  if (state.libro) d.libro = { title: state.libro.title, autor: state.libro.autor, url: state.libro.url };
   return d;
 }
 function lineasDet(d){
@@ -472,7 +590,7 @@ function lineasDet(d){
   if (d.libro) l.push(`Libro: «${d.libro.title}», ${d.libro.autor} (${d.libro.url})`);
   return l;
 }
-const textoCompleto = (texto, d) => { const l = lineasDet(d); return texto + (l.length ? "\n\nDetonadores de ideas:\n- " + l.join("\n- ") : ""); };
+const textoCompleto = (texto, d) => { const l = lineasDet(d); return texto + (l.length ? "\n\nDetonadores creativos:\n- " + l.join("\n- ") : ""); };
 const fechaLegible = iso => new Date(iso).toLocaleString("es-MX", {dateStyle:"medium", timeStyle:"short"});
 function renderGuardadas(){
   $("listaG").innerHTML = guardadas.map(g => {
@@ -486,7 +604,8 @@ function renderGuardadas(){
       <p class="g-texto">${esc(g.texto)}</p>${items.length ? `<ul class="g-det">${items.join("")}</ul>` : ""}</li>`;
   }).join("");
   $("btnDescargar").hidden = !guardadas.length;
-  $("notaG").textContent = !guardadas.length ? "Aún no hay consignas guardadas. Pulsa «Guardar» para conservar la actual con sus detonadores."
+  $("resumenG").textContent = guardadas.length === 1 ? "1 idea" : guardadas.length + " ideas";
+  $("notaG").textContent = !guardadas.length ? "Aún no hay ideas guardadas. Pulsa «Guardar» para conservar la actual con sus detonadores."
     : almacenOk ? "Se guardan en este navegador: no aparecen en otros dispositivos y se pierden si borras los datos del sitio. Descárgalas para conservarlas."
     : "Este navegador no permite guardar datos: la lista se perderá al cerrar la página. Descárgala antes.";
 }
@@ -509,7 +628,7 @@ $("btnDescargar").addEventListener("click", () => {
   const txt = guardadas.map(g => `[${fechaLegible(g.fecha)}]\n` + textoCompleto(g.texto, g.det || {})).join("\n\n" + "-".repeat(40) + "\n\n");
   const a = document.createElement("a");
   a.href = URL.createObjectURL(new Blob([txt], {type:"text/plain;charset=utf-8"}));
-  a.download = "consignas-guardadas.txt";
+  a.download = "ideas-guardadas.txt";
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 });
@@ -524,18 +643,30 @@ $("btnCopiar").addEventListener("click", async () => {
 });
 $("swPersonaje").addEventListener("change", e => { state.usePersonaje = e.target.checked; sortear(true); render(); });
 document.querySelectorAll('input[name="modo"]').forEach(r => r.addEventListener("change", e => {
-  state.modo = e.target.value; sortear(true); render();
+  state.modo = e.target.value; $("resumenModo").textContent = state.modo === "caos" ? "Caos" : "Coherente"; sortear(true); render();
 }));
+
+/* Correo (se arma al cargar para dificultar que lo recolecten bots) */
+(() => { const a = $("correo"), u = "lizardo.viridiana", d = "gmail.com"; a.href = "mailto:" + u + "@" + d; a.textContent = u + "@" + d; })();
+
+/* GoatCounter: solo se carga si hay código configurado */
+if (GOATCOUNTER){
+  const sc = document.createElement("script");
+  sc.async = true; sc.src = "https://gc.zgo.at/count.js";
+  sc.dataset.goatcounter = "https://" + GOATCOUNTER + ".goatcounter.com/count";
+  document.head.appendChild(sc);
+}
 
 lluvia();
 fetch(ARCHIVO_DATOS)
   .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
   .then(d => {
     DATOS = d; campo = Object.fromEntries(DATOS.campos.map(c => [c.id, c]));
-    construirControles(); sortear(); render(); nuevosDetonadores();
+    construirControles();
+    if (!cargarDesdeEnlace()){ sortear(); render(); nuevosDetonadores(); }
   })
   .catch(() => {
-    $("consigna").textContent = "No se pudo cargar consignas.json. Debe estar en la misma carpeta que index.html. Si abriste el archivo directamente desde tu computadora, el navegador bloquea la lectura: pruébalo en GitHub Pages o con un servidor local.";
+    $("consigna").textContent = "No se pudo cargar ideas.json. Debe estar en la misma carpeta que index.html. Si abriste el archivo directamente desde tu computadora, el navegador bloquea la lectura: pruébalo en GitHub Pages o con un servidor local.";
   });
 </script>
 </body>

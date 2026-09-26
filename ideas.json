@@ -1,5 +1,5 @@
 {
-  "_instrucciones": "Edita este archivo para cambiar opciones y reglas. Cada valor: id (único, sin espacios), t (etiqueta en la lista), f (frase que entra en la Idea), d (descripción opcional), w (peso opcional en el sorteo; 1 por defecto). Reglas: si {campo:[valores]} -> req {campo:[permitidos]} y/o no {campo:[excluidos]}, msg (texto que se muestra). wikipedia_respaldo: títulos que se usan si Wikipedia no responde. gutenberg_respaldo: libros que se usan si Gutendex no responde.",
+  "_instrucciones": "Edita este archivo para cambiar opciones y reglas. Cada valor: id (único, sin espacios), t (etiqueta en la lista), f (frase que entra en la consigna), d (descripción opcional), w (peso opcional en el sorteo; 1 por defecto). Reglas: si {campo:[valores]} -> req {campo:[permitidos]} y/o no {campo:[excluidos]}, msg (texto que se muestra). wikipedia_respaldo: títulos que se usan si Wikipedia no responde.",
   "campos": [
     {
       "id": "persona",
@@ -943,87 +943,5 @@
     "Eco",
     "Sombra",
     "Espantapájaros"
-  ],
-  "gutenberg_respaldo": [
-    {
-      "titulo": "Don Quijote",
-      "autor": "Miguel de Cervantes"
-    },
-    {
-      "titulo": "Novelas ejemplares",
-      "autor": "Miguel de Cervantes"
-    },
-    {
-      "titulo": "La Celestina",
-      "autor": "Fernando de Rojas"
-    },
-    {
-      "titulo": "Lazarillo de Tormes",
-      "autor": "Anónimo"
-    },
-    {
-      "titulo": "Doña Perfecta",
-      "autor": "Benito Pérez Galdós"
-    },
-    {
-      "titulo": "Marianela",
-      "autor": "Benito Pérez Galdós"
-    },
-    {
-      "titulo": "Pepita Jiménez",
-      "autor": "Juan Valera"
-    },
-    {
-      "titulo": "El sombrero de tres picos",
-      "autor": "Pedro Antonio de Alarcón"
-    },
-    {
-      "titulo": "Leyendas",
-      "autor": "Gustavo Adolfo Bécquer"
-    },
-    {
-      "titulo": "La gaviota",
-      "autor": "Fernán Caballero"
-    },
-    {
-      "titulo": "María",
-      "autor": "Jorge Isaacs"
-    },
-    {
-      "titulo": "Azul",
-      "autor": "Rubén Darío"
-    },
-    {
-      "titulo": "Niebla",
-      "autor": "Miguel de Unamuno"
-    },
-    {
-      "titulo": "Cuentos de amor de locura y de muerte",
-      "autor": "Horacio Quiroga"
-    },
-    {
-      "titulo": "Los de abajo",
-      "autor": "Mariano Azuela"
-    },
-    {
-      "titulo": "La barraca",
-      "autor": "Vicente Blasco Ibáñez"
-    },
-    {
-      "titulo": "Sonata de otoño",
-      "autor": "Ramón del Valle-Inclán"
-    },
-    {
-      "titulo": "Fortunata y Jacinta",
-      "autor": "Benito Pérez Galdós"
-    },
-    {
-      "titulo": "El Periquillo Sarniento",
-      "autor": "José Joaquín Fernández de Lizardi"
-    },
-    {
-      "titulo": "Tradiciones peruanas",
-      "autor": "Ricardo Palma"
-    }
   ]
 }

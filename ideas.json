@@ -1,5 +1,5 @@
 {
-  "_instrucciones": "Edita este archivo para cambiar opciones y reglas. Cada valor: id (único, sin espacios), t (etiqueta en la lista), f (frase que entra en la consigna), d (descripción opcional), w (peso opcional en el sorteo; 1 por defecto). Reglas: si {campo:[valores]} -> req {campo:[permitidos]} y/o no {campo:[excluidos]}, msg (texto que se muestra). wikipedia_respaldo: títulos que se usan si Wikipedia no responde.",
+  "_instrucciones": "Edita este archivo para cambiar opciones y reglas. Cada valor: id (único, sin espacios), t (etiqueta en la lista), f (frase que entra en la consigna), d (descripción opcional), w (peso opcional en el sorteo; 1 por defecto), ej (ejemplo opcional; aparece en «Instrucciones detalladas» para narrador, tiempo verbal, técnica, forma y estructura). Reglas: si {campo:[valores]} -> req {campo:[permitidos]} y/o no {campo:[excluidos]}, msg (texto que se muestra). wikipedia_respaldo: títulos que se usan si Wikipedia no responde. Una regla con \"siempre\": true se aplica también en modo caos. Grupo S: situación dramática; su texto se arma con t y d. En el personaje, fs (naturaleza) y fg (género) se usan para redactar la oración (ver frasePersonaje en index.html).",
   "campos": [
     {
       "id": "persona",
@@ -37,43 +37,50 @@
           "id": "omnisciente",
           "t": "Omnisciente",
           "f": "con un narrador omnisciente",
-          "d": "Lo sabe todo, incluidos los pensamientos de cualquier personaje."
+          "d": "Lo sabe todo, incluidos los pensamientos de cualquier personaje.",
+          "ej": "Marta sonreía, pero pensaba en irse; su hermano, sin saberlo, ya había vendido la casa."
         },
         {
           "id": "limitado",
           "t": "Limitado o focalizado",
           "f": "con un narrador limitado a lo que sabe un solo personaje",
-          "d": "Solo sabe lo que sabe un personaje."
+          "d": "Solo sabe lo que sabe un personaje.",
+          "ej": "Marta vio a su hermano guardar un sobre. No supo qué contenía, pero algo en su gesto la inquietó."
         },
         {
           "id": "objetivo",
           "t": "Objetivo o cámara",
           "f": "con un narrador objetivo que solo registra lo que se ve y se oye",
-          "d": "Registra acciones y diálogos; no entra en ninguna mente."
+          "d": "Registra acciones y diálogos; no entra en ninguna mente.",
+          "ej": "Marta dejó la taza en la mesa. Su hermano miró el reloj. Nadie habló durante un minuto."
         },
         {
           "id": "protagonista",
           "t": "Protagonista",
           "f": "con el protagonista como narrador",
-          "d": "Cuenta su propia historia."
+          "d": "Cuenta su propia historia.",
+          "ej": "Ese día decidí que no volvería a esa casa."
         },
         {
           "id": "testigo",
           "t": "Testigo",
           "f": "con un narrador testigo de la historia de otro",
-          "d": "Presencia la historia de otra persona."
+          "d": "Presencia la historia de otra persona.",
+          "ej": "Yo estaba en la cocina cuando Marta le dijo a su hermano que se iba."
         },
         {
           "id": "nofiable",
           "t": "No fiable",
           "f": "con un narrador no fiable",
-          "d": "Su versión de los hechos no merece toda la confianza del lector."
+          "d": "Su versión de los hechos no merece toda la confianza del lector.",
+          "ej": "No bebí esa noche; bueno, apenas una copa, y por eso recuerdo todo con claridad."
         },
         {
           "id": "coral",
           "t": "Coral o múltiple",
           "f": "con varias voces que se turnan la narración",
-          "d": "Varias voces narran por turnos."
+          "d": "Varias voces narran por turnos.",
+          "ej": "MARTA: Nunca quise irme. / SU HERMANO: Llevaba años planeándolo."
         }
       ]
     },
@@ -85,31 +92,39 @@
         {
           "id": "pasado",
           "t": "Pasado (pretérito e imperfecto)",
-          "f": "en pasado"
+          "f": "en pasado",
+          "d": "Pretérito para las acciones concluidas e imperfecto para las que están en curso o se repiten. Es el tiempo más usado en la narrativa.",
+          "ej": "Llovía cuando llegó a la estación; compró un boleto y esperó."
         },
         {
           "id": "presente",
           "t": "Presente",
-          "f": "en presente"
+          "f": "en presente",
+          "d": "Los hechos ocurren mientras se narran; da inmediatez.",
+          "ej": "Llueve. Llega a la estación, compra un boleto y espera."
         },
         {
           "id": "futuro",
           "t": "Futuro",
           "f": "en futuro",
           "w": 0.25,
-          "d": "Difícil de sostener en un texto completo."
+          "d": "Los hechos se narran como algo que va a ocurrir: profecía, plan o instrucción. Difícil de sostener en un texto completo.",
+          "ej": "Lloverá cuando llegues a la estación. Comprarás un boleto y esperarás."
         },
         {
           "id": "condicional",
           "t": "Condicional",
           "f": "en condicional",
           "w": 0.25,
-          "d": "Difícil de sostener en un texto completo."
+          "d": "Los hechos se narran como posibles o hipotéticos: deseo, duda o una realidad alternativa. Difícil de sostener en un texto completo.",
+          "ej": "Llovería, claro. Llegaría a la estación, compraría un boleto y esperaría."
         },
         {
           "id": "alterna",
           "t": "Alternancia pasado / presente",
-          "f": "alternando pasado y presente"
+          "f": "alternando pasado y presente",
+          "d": "Un plano en pasado y otro en presente; suele separar el recuerdo de la actualidad.",
+          "ej": "Hoy vuelvo a la estación. Aquella vez llovía y yo no sabía adónde ir."
         }
       ]
     },
@@ -122,37 +137,43 @@
           "id": "convencional",
           "t": "Narración convencional",
           "f": "con narración convencional",
-          "d": "Un narrador cuenta los hechos y reproduce lo que dicen los personajes con guiones o comillas."
+          "d": "Un narrador cuenta los hechos y reproduce lo que dicen los personajes con guiones o comillas.",
+          "ej": "—No voy a volver —dijo Marta, y cerró la puerta."
         },
         {
           "id": "indirecto",
           "t": "Estilo indirecto libre",
           "f": "en estilo indirecto libre",
-          "d": "La voz del narrador se funde con la del personaje, sin comillas ni verbos de habla."
+          "d": "La voz del narrador se funde con la del personaje, sin comillas ni verbos de habla.",
+          "ej": "Marta cerró la puerta. No iba a volver, claro que no; ¿para qué, si nadie la esperaba?"
         },
         {
           "id": "monologo",
           "t": "Monólogo interior",
           "f": "como monólogo interior",
-          "d": "El pensamiento del personaje, articulado y sin mediación."
+          "d": "El pensamiento del personaje, articulado y sin mediación.",
+          "ej": "Tengo que irme antes de que despierte. Dejaré la llave en la mesa; no hace falta una nota."
         },
         {
           "id": "flujo",
           "t": "Flujo de conciencia",
           "f": "como flujo de conciencia",
-          "d": "Pensamiento sin orden lógico: asociaciones, saltos, sintaxis rota."
+          "d": "Pensamiento sin orden lógico: asociaciones, saltos, sintaxis rota.",
+          "ej": "la llave la mesa el zumbido del refrigerador mamá decía que los refrigeradores lloran de noche y yo"
         },
         {
           "id": "dialogo",
           "t": "Predominio de diálogo",
           "f": "con predominio de diálogo",
-          "d": "La historia avanza sobre todo por lo que dicen los personajes; la narración es mínima."
+          "d": "La historia avanza sobre todo por lo que dicen los personajes; la narración es mínima.",
+          "ej": "—¿Te vas? —Sí. —¿Cuándo? —Ahora."
         },
         {
           "id": "sindialogo",
           "t": "Sin diálogo",
           "f": "sin ningún diálogo",
-          "d": "Nadie habla en escena; todo se cuenta a través de la narración."
+          "d": "Nadie habla en escena; todo se cuenta a través de la narración.",
+          "ej": "Marta no le dijo nada. Dejó la llave sobre la mesa y salió antes del amanecer."
         }
       ]
     },
@@ -165,67 +186,78 @@
           "id": "libre",
           "t": "Narración libre",
           "f": "como narración libre",
-          "d": "Prosa narrativa sin un formato documental específico."
+          "d": "Prosa narrativa sin un formato documental específico.",
+          "ej": "Marta salió antes del amanecer, con la llave todavía en la mano."
         },
         {
           "id": "epistolar",
           "t": "Epistolar (cartas)",
           "f": "en forma epistolar",
-          "d": "La historia se cuenta mediante cartas entre uno o varios personajes."
+          "d": "La historia se cuenta mediante cartas entre uno o varios personajes.",
+          "ej": "Querido Andrés: te escribo desde la estación, sin saber si llegará esta carta."
         },
         {
           "id": "diario",
           "t": "Diario",
           "f": "como diario",
-          "d": "Entradas fechadas escritas por un personaje para sí mismo."
+          "d": "Entradas fechadas escritas por un personaje para sí mismo.",
+          "ej": "14 de marzo. Hoy tampoco llamó. Dejé la llave en la mesa, por si acaso."
         },
         {
           "id": "chat",
           "t": "Mensajes o chat",
           "f": "como conversación de mensajes",
-          "d": "Intercambio de mensajes breves, con remitentes y quizá horas."
+          "d": "Intercambio de mensajes breves, con remitentes y quizá horas.",
+          "ej": "[23:41] M: ¿sigues despierto? / [23:52] A: ya no importa"
         },
         {
           "id": "transcripcion",
           "t": "Transcripción o interrogatorio",
           "f": "como transcripción de un interrogatorio o una grabación",
-          "d": "Registro literal de lo que se dijo, con los hablantes identificados."
+          "d": "Registro literal de lo que se dijo, con los hablantes identificados.",
+          "ej": "ENTREVISTADOR: ¿Dónde estaba usted esa noche? / TESTIGO: En la estación. Llovía."
         },
         {
           "id": "expediente",
           "t": "Expediente o informe",
           "f": "como expediente o informe",
-          "d": "Documento oficial o técnico: apartados, datos, lenguaje institucional."
+          "d": "Documento oficial o técnico: apartados, datos, lenguaje institucional.",
+          "ej": "Expediente 0417. Asunto: desaparición. Última ubicación conocida: terminal de autobuses."
         },
         {
           "id": "lista",
           "t": "Lista",
           "f": "como lista",
-          "d": "Elementos enumerados; la historia se deduce de lo que se incluye y en qué orden."
+          "d": "Elementos enumerados; la historia se deduce de lo que se incluye y en qué orden.",
+          "ej": "Cosas que dejé en la casa: 1. La llave. 2. El abrigo gris. 3. A mi hermano."
         },
         {
           "id": "instructivo",
           "t": "Instructivo",
           "f": "como instructivo",
-          "d": "Pasos o indicaciones dirigidos al lector, en imperativo."
+          "d": "Pasos o indicaciones dirigidos al lector, en imperativo.",
+          "ej": "Para irse sin despertar a nadie: 1. Quítese los zapatos. 2. No encienda la luz."
         },
         {
           "id": "enciclopedia",
           "t": "Entrada de enciclopedia",
           "f": "como entrada de enciclopedia",
-          "d": "Tono expositivo e impersonal, como si el tema existiera y estuviera documentado."
+          "d": "Tono expositivo e impersonal, como si el tema existiera y estuviera documentado.",
+          "ej": "Estación del Norte: terminal de autobuses inaugurada en 1962, conocida por sus relojes que nunca coinciden."
         },
         {
           "id": "resena",
           "t": "Reseña",
           "f": "como reseña",
-          "d": "Valoración crítica de una obra, un lugar o un objeto, reales o inventados."
+          "d": "Valoración crítica de una obra, un lugar o un objeto, reales o inventados.",
+          "ej": "Tres estrellas para esta estación: bancos incómodos, café aceptable y un reloj que miente."
         },
         {
           "id": "receta",
           "t": "Receta",
           "f": "como receta",
-          "d": "Ingredientes y preparación; lo narrativo se cuela entre las instrucciones."
+          "d": "Ingredientes y preparación; lo narrativo se cuela entre las instrucciones.",
+          "ej": "Ingredientes: una llave, dos tazas de silencio. Preparación: deje la llave sobre la mesa antes del amanecer."
         }
       ]
     },
@@ -237,42 +269,51 @@
         {
           "id": "lineal",
           "t": "Lineal",
-          "f": "con estructura lineal"
+          "f": "con estructura lineal",
+          "d": "Los hechos se cuentan en el orden en que ocurren.",
+          "ej": "Primero llegó la carta; después, la llamada; al final, el viaje."
         },
         {
           "id": "medias",
           "t": "In medias res",
           "f": "empezando in medias res",
-          "d": "Empieza a mitad de la acción."
+          "d": "Empieza a mitad de la acción.",
+          "ej": "—¡Suelta eso! —gritó alguien, y Marta todavía no entendía cómo había llegado ahí."
         },
         {
           "id": "retro",
           "t": "Retrospectiva",
           "f": "en retrospectiva",
-          "d": "Se narra desde después de los hechos, mirando atrás."
+          "d": "Se narra desde después de los hechos, mirando atrás.",
+          "ej": "Ahora que han pasado veinte años, puedo contar lo que ocurrió aquel verano."
         },
         {
           "id": "inversa",
           "t": "Cronología inversa",
           "f": "en cronología inversa",
-          "d": "Del final al principio."
+          "d": "Del final al principio.",
+          "ej": "Primera escena: el entierro. Segunda: el accidente. Tercera: la discusión de esa mañana."
         },
         {
           "id": "circular",
           "t": "Circular",
           "f": "con estructura circular",
-          "d": "Termina donde empezó."
+          "d": "Termina donde empezó.",
+          "ej": "El texto empieza y termina con Marta esperando el mismo autobús."
         },
         {
           "id": "fragmentaria",
           "t": "Fragmentaria",
-          "f": "en fragmentos"
+          "f": "en fragmentos",
+          "d": "Escenas o piezas sueltas, sin transiciones; el lector reconstruye la historia.",
+          "ej": "Una nota en el refrigerador. Una llamada perdida. Un boleto de autobús sin usar."
         },
         {
           "id": "tiemporeal",
           "t": "Tiempo real",
           "f": "en tiempo real",
-          "d": "Lo narrado dura lo mismo que la lectura."
+          "d": "Lo narrado dura lo mismo que la lectura.",
+          "ej": "Los diez minutos de espera en el andén, contados sin saltos."
         }
       ]
     },
@@ -348,8 +389,23 @@
         },
         {
           "id": "drama",
-          "t": "Drama doméstico",
-          "f": "de drama doméstico"
+          "t": "Drama",
+          "f": "de drama"
+        },
+        {
+          "id": "surrealismo",
+          "t": "Surrealismo",
+          "f": "surrealista"
+        },
+        {
+          "id": "utopia",
+          "t": "Utopía",
+          "f": "utópico"
+        },
+        {
+          "id": "accion",
+          "t": "Acción / aventura",
+          "f": "de acción y aventura"
         }
       ]
     },
@@ -414,14 +470,14 @@
           "f": "con tono austero o seco"
         },
         {
-          "id": "íntimo",
-          "t": "Íntimo",
-          "f": "con tono íntimo"
+          "id": "erótico",
+          "t": "Erótico",
+          "f": "con tono erótico"
         },
         {
-          "id": "clínico",
-          "t": "Clínico",
-          "f": "con tono clínico"
+          "id": "secreto",
+          "t": "Secreto",
+          "f": "con tono de secreto, como si se contara en confidencia"
         }
       ]
     },
@@ -453,6 +509,32 @@
       ]
     },
     {
+      "id": "p_naturaleza",
+      "grupo": "P",
+      "nombre": "Naturaleza",
+      "valores": [
+        {
+          "id": "humano",
+          "t": "Humano",
+          "f": "de naturaleza humana",
+          "w": 3,
+          "fs": "una persona"
+        },
+        {
+          "id": "nohumano",
+          "t": "No humano",
+          "f": "de naturaleza no humana (animal, planta, máquina u objeto)",
+          "fs": "un ser no humano (animal, planta, máquina u objeto)"
+        },
+        {
+          "id": "mitologico",
+          "t": "Mitológico",
+          "f": "de naturaleza mitológica",
+          "fs": "un ser mitológico"
+        }
+      ]
+    },
+    {
       "id": "p_genero",
       "grupo": "P",
       "nombre": "Género",
@@ -460,23 +542,27 @@
         {
           "id": "mujer",
           "t": "Mujer",
-          "f": "mujer"
+          "f": "mujer",
+          "fg": "de género femenino"
         },
         {
           "id": "hombre",
           "t": "Hombre",
-          "f": "hombre"
+          "f": "hombre",
+          "fg": "de género masculino"
         },
         {
           "id": "nobinaria",
           "t": "Persona no binaria",
-          "f": "persona no binaria"
+          "f": "persona no binaria",
+          "fg": "de género no binario"
         },
         {
           "id": "indefinido",
           "t": "Sin especificar",
           "f": "de género no especificado",
-          "d": "El texto no revela el género del personaje."
+          "d": "El texto no revela el género del personaje.",
+          "fg": ""
         }
       ]
     },
@@ -486,9 +572,14 @@
       "nombre": "Edad",
       "valores": [
         {
+          "id": "bebe",
+          "t": "Bebé (menos de 2)",
+          "f": "un bebé (menos de 2 años)"
+        },
+        {
           "id": "infancia",
-          "t": "Infancia (menos de 12)",
-          "f": "en la infancia (menos de 12 años)"
+          "t": "Infancia (2 a 11)",
+          "f": "en la infancia (2 a 11 años)"
         },
         {
           "id": "adolescencia",
@@ -509,6 +600,11 @@
           "id": "vejez",
           "t": "Vejez (60 o más)",
           "f": "en la vejez (60 años o más)"
+        },
+        {
+          "id": "muerto",
+          "t": "Muerto",
+          "f": "que ya ha muerto"
         }
       ]
     },
@@ -520,22 +616,22 @@
         {
           "id": "protagonista",
           "t": "Protagonista",
-          "f": "protagonista"
+          "f": "como protagonista"
         },
         {
           "id": "antagonista",
           "t": "Antagonista",
-          "f": "antagonista"
+          "f": "como antagonista"
         },
         {
           "id": "secundario",
           "t": "Secundario",
-          "f": "personaje secundario"
+          "f": "como personaje secundario"
         },
         {
           "id": "ausente",
           "t": "Ausente",
-          "f": "personaje ausente, del que se habla pero que nunca aparece",
+          "f": "como personaje ausente, del que se habla pero que nunca aparece",
           "d": "Pesa en la historia sin estar en escena."
         }
       ]
@@ -548,12 +644,12 @@
         {
           "id": "inicio",
           "t": "Desde el inicio",
-          "f": "presente desde el inicio"
+          "f": "que esté presente desde el inicio"
         },
         {
           "id": "todo",
           "t": "En todo el texto",
-          "f": "presente en todo el texto"
+          "f": "que esté presente en todo el texto"
         },
         {
           "id": "mitad",
@@ -634,6 +730,229 @@
           "t": "Ambiguo",
           "f": "que provoque en el lector sentimientos encontrados",
           "d": "Ni simpatía ni rechazo claros."
+        }
+      ]
+    },
+    {
+      "id": "situacion",
+      "grupo": "S",
+      "nombre": "Situación dramática (Polti)",
+      "valores": [
+        {
+          "id": "suplica",
+          "t": "Súplica",
+          "f": "Súplica",
+          "d": "Alguien perseguido o en desgracia pide ayuda a un poder que duda en dársela."
+        },
+        {
+          "id": "rescate",
+          "t": "Rescate",
+          "f": "Rescate",
+          "d": "Alguien llega a salvar a quien está en peligro o en desgracia."
+        },
+        {
+          "id": "venganza",
+          "t": "Venganza de un crimen",
+          "f": "Venganza de un crimen",
+          "d": "Alguien castiga una ofensa o un crimen cometido contra él o contra los suyos."
+        },
+        {
+          "id": "venganza_parientes",
+          "t": "Venganza entre parientes",
+          "f": "Venganza entre parientes",
+          "d": "La venganza ocurre dentro de la familia: un pariente castiga a otro."
+        },
+        {
+          "id": "persecucion",
+          "t": "Persecución",
+          "f": "Persecución",
+          "d": "Alguien huye de un castigo, una amenaza o un perseguidor."
+        },
+        {
+          "id": "desastre",
+          "t": "Desastre",
+          "f": "Desastre",
+          "d": "Una catástrofe, una derrota o una ruina cae sobre alguien."
+        },
+        {
+          "id": "victima",
+          "t": "Víctima de la crueldad o la desgracia",
+          "f": "Víctima de la crueldad o la desgracia",
+          "d": "Alguien sufre por la crueldad de otro o por el azar."
+        },
+        {
+          "id": "rebelion",
+          "t": "Rebelión",
+          "f": "Rebelión",
+          "d": "Alguien se levanta contra un poder establecido."
+        },
+        {
+          "id": "empresa",
+          "t": "Empresa audaz",
+          "f": "Empresa audaz",
+          "d": "Alguien intenta algo arriesgado para alcanzar un objetivo difícil."
+        },
+        {
+          "id": "rapto",
+          "t": "Rapto",
+          "f": "Rapto",
+          "d": "Alguien es llevado o retenido contra su voluntad."
+        },
+        {
+          "id": "enigma",
+          "t": "Enigma",
+          "f": "Enigma",
+          "d": "Hay una pregunta o un misterio que resolver, y fallar tiene consecuencias."
+        },
+        {
+          "id": "obtencion",
+          "t": "Obtención",
+          "f": "Obtención",
+          "d": "Alguien intenta conseguir algo mediante la astucia, la persuasión o la fuerza."
+        },
+        {
+          "id": "enemistad_parientes",
+          "t": "Enemistad entre parientes",
+          "f": "Enemistad entre parientes",
+          "d": "El odio divide a miembros de una misma familia."
+        },
+        {
+          "id": "rivalidad_parientes",
+          "t": "Rivalidad entre parientes",
+          "f": "Rivalidad entre parientes",
+          "d": "Dos parientes compiten por lo mismo."
+        },
+        {
+          "id": "infidelidad_crimen",
+          "t": "Infidelidad que lleva al crimen",
+          "f": "Infidelidad que lleva al crimen",
+          "d": "Una traición amorosa desemboca en un crimen."
+        },
+        {
+          "id": "locura",
+          "t": "Locura",
+          "f": "Locura",
+          "d": "Alguien pierde la razón y actúa en consecuencia."
+        },
+        {
+          "id": "imprudencia",
+          "t": "Imprudencia fatal",
+          "f": "Imprudencia fatal",
+          "d": "Un descuido o una curiosidad provoca una desgracia."
+        },
+        {
+          "id": "transgresion_involuntaria",
+          "t": "Transgresión involuntaria",
+          "f": "Transgresión involuntaria",
+          "d": "Alguien descubre demasiado tarde que su amor rompía un tabú que ignoraba."
+        },
+        {
+          "id": "pariente_desconocido",
+          "t": "Daño a un pariente sin reconocerlo",
+          "f": "Daño a un pariente sin reconocerlo",
+          "d": "Alguien hiere o mata a un pariente sin saber quién es."
+        },
+        {
+          "id": "sacrificio_ideal",
+          "t": "Sacrificio por un ideal",
+          "f": "Sacrificio por un ideal",
+          "d": "Alguien renuncia a algo valioso, incluso a sí mismo, por una causa."
+        },
+        {
+          "id": "sacrificio_familia",
+          "t": "Sacrificio por los seres queridos",
+          "f": "Sacrificio por los seres queridos",
+          "d": "Alguien renuncia a algo valioso por quienes ama."
+        },
+        {
+          "id": "pasion",
+          "t": "Todo sacrificado a una pasión",
+          "f": "Todo sacrificado a una pasión",
+          "d": "Alguien lo pierde todo por un deseo, un vicio o una obsesión."
+        },
+        {
+          "id": "sacrificar_amado",
+          "t": "Tener que sacrificar a un ser querido",
+          "f": "Tener que sacrificar a un ser querido",
+          "d": "El deber o las circunstancias obligan a alguien a sacrificar a quien ama."
+        },
+        {
+          "id": "rivalidad_desiguales",
+          "t": "Rivalidad entre desiguales",
+          "f": "Rivalidad entre desiguales",
+          "d": "Dos rivales compiten, y uno tiene mucho más poder que el otro."
+        },
+        {
+          "id": "infidelidad",
+          "t": "Infidelidad",
+          "f": "Infidelidad",
+          "d": "Una relación se rompe o se tensa por una traición amorosa."
+        },
+        {
+          "id": "amor_transgresor",
+          "t": "Amor transgresor",
+          "f": "Amor transgresor",
+          "d": "Una pasión rompe una norma moral o social."
+        },
+        {
+          "id": "deshonra",
+          "t": "Descubrir la deshonra de un ser querido",
+          "f": "Descubrir la deshonra de un ser querido",
+          "d": "Alguien descubre que una persona querida ha hecho algo vergonzoso."
+        },
+        {
+          "id": "obstaculos_amor",
+          "t": "Obstáculos al amor",
+          "f": "Obstáculos al amor",
+          "d": "Algo o alguien se interpone entre dos personas que se aman."
+        },
+        {
+          "id": "amar_enemigo",
+          "t": "Amar a un enemigo",
+          "f": "Amar a un enemigo",
+          "d": "Alguien ama a quien debería odiar o combatir."
+        },
+        {
+          "id": "ambicion",
+          "t": "Ambición",
+          "f": "Ambición",
+          "d": "Alguien persigue el poder o el éxito a cualquier precio."
+        },
+        {
+          "id": "contra_dios",
+          "t": "Conflicto con lo divino",
+          "f": "Conflicto con lo divino",
+          "d": "Alguien desafía a un dios, al destino o a una fuerza superior."
+        },
+        {
+          "id": "celos",
+          "t": "Celos infundados",
+          "f": "Celos infundados",
+          "d": "Alguien sospecha una traición que no ocurrió."
+        },
+        {
+          "id": "error_juicio",
+          "t": "Error de juicio",
+          "f": "Error de juicio",
+          "d": "Alguien juzga mal a otra persona o una situación, con consecuencias graves."
+        },
+        {
+          "id": "remordimiento",
+          "t": "Remordimiento",
+          "f": "Remordimiento",
+          "d": "Alguien carga con la culpa de algo que hizo."
+        },
+        {
+          "id": "reencuentro",
+          "t": "Reencuentro",
+          "f": "Reencuentro",
+          "d": "Alguien recupera a una persona que creía perdida."
+        },
+        {
+          "id": "perdida",
+          "t": "Pérdida de seres queridos",
+          "f": "Pérdida de seres queridos",
+          "d": "Alguien enfrenta la muerte o la desaparición de quienes ama."
         }
       ]
     }
@@ -850,6 +1169,41 @@
         ]
       },
       "msg": "El protagonista no puede aparecer solo al final."
+    },
+    {
+      "si": {
+        "tono": [
+          "erótico"
+        ]
+      },
+      "no": {
+        "p_edad": [
+          "bebe",
+          "infancia",
+          "adolescencia"
+        ]
+      },
+      "siempre": true,
+      "msg": "El tono erótico no se combina con personajes menores de edad."
+    },
+    {
+      "si": {
+        "situacion": [
+          "infidelidad_crimen",
+          "transgresion_involuntaria",
+          "infidelidad",
+          "amor_transgresor"
+        ]
+      },
+      "no": {
+        "p_edad": [
+          "bebe",
+          "infancia",
+          "adolescencia"
+        ]
+      },
+      "siempre": true,
+      "msg": "Las situaciones de infidelidad o amor transgresor no se combinan con personajes menores de edad."
     }
   ],
   "wikipedia_respaldo": [

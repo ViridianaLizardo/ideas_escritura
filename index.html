@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Máquina de Ideación</title>
-<meta name="description" content="Genera ideas para escribir: combina técnica narrativa, género, tono, extensión y personaje, con detonadores creativos de Wikipedia y Wikimedia Commons.">
+<title>Cuento.exe</title>
+<meta name="description" content="Máquina de ideación narrativa para salir del bloqueo creativo: instrucciones técnicas al azar, inspiradas en los métodos dadaístas, que no dictan el argumento.">
 <meta name="author" content="Viridiana Lizardo">
 <meta name="theme-color" content="#020503">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23020503'/%3E%3Ctext x='50' y='54' font-size='78' text-anchor='middle' dominant-baseline='middle' fill='%2300FF41'%3E%E2%9C%B5%3C/text%3E%3C/svg%3E">
 <link rel="canonical" href="https://viridianalizardo.github.io/ideas_escritura/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_MX">
-<meta property="og:site_name" content="Máquina de Ideación">
-<meta property="og:title" content="Máquina de Ideación">
-<meta property="og:description" content="Genera ideas para escribir: combina técnica narrativa, género, tono, extensión y personaje, con detonadores creativos de Wikipedia y Wikimedia Commons.">
+<meta property="og:site_name" content="Cuento.exe">
+<meta property="og:title" content="Cuento.exe">
+<meta property="og:description" content="Máquina de ideación narrativa para salir del bloqueo creativo: instrucciones técnicas al azar, inspiradas en los métodos dadaístas, que no dictan el argumento.">
 <meta property="og:url" content="https://viridianalizardo.github.io/ideas_escritura/">
 <meta property="og:image" content="https://viridianalizardo.github.io/ideas_escritura/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Máquina de Ideación: generador de ideas de escritura creativa">
+<meta property="og:image:alt" content="Cuento.exe: máquina de ideación narrativa">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Máquina de Ideación">
-<meta name="twitter:description" content="Genera ideas para escribir: combina técnica narrativa, género, tono, extensión y personaje, con detonadores creativos de Wikipedia y Wikimedia Commons.">
+<meta name="twitter:title" content="Cuento.exe">
+<meta name="twitter:description" content="Máquina de ideación narrativa para salir del bloqueo creativo: instrucciones técnicas al azar, inspiradas en los métodos dadaístas, que no dictan el argumento.">
 <meta name="twitter:image" content="https://viridianalizardo.github.io/ideas_escritura/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,6 +73,7 @@ main{display:flex;flex-direction:column;gap:36px}
 .det-img{display:block;width:100%;max-height:320px;object-fit:contain;background:#000;border:1px solid var(--line)}
 .btn.mini{padding:3px 10px;font-size:.74rem}
 .btn.mini[data-tip]::after{left:auto;right:0}
+.lateral .btn.mini[data-tip]::after{left:0;right:auto}
 .cargando{color:var(--muted)}
 .ficha{background:var(--surface);border:1px solid var(--line);padding:20px 22px 22px;display:flex;flex-direction:column;gap:16px}
 .ficha-head{display:flex;justify-content:space-between;gap:12px;color:var(--green-dim);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px dashed var(--line);padding-bottom:10px}
@@ -81,8 +82,12 @@ main{display:flex;flex-direction:column;gap:36px}
 .consigna::before{content:"> ";color:var(--green)}
 .consigna.scr{color:var(--green-dim)}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
-.tags li{font-size:.74rem;border:1px solid var(--line);padding:1px 8px;color:var(--muted)}
-.tags li.fixed{border-color:var(--green);color:var(--green)}
+.tag{font:inherit;font-size:.74rem;border:1px solid var(--line);background:transparent;padding:2px 8px;color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.tag:hover{border-color:var(--green-dim);color:var(--ink)}
+.tag[aria-pressed="true"]{border-color:var(--green);color:var(--on-green);background:var(--green)}
+.tag svg{flex:none}
+.print-hide{}
+.tags-hint{margin:-8px 0 0;font-size:.7rem;color:var(--muted)}
 .aviso{margin:0;font-size:.82rem;border:1px dashed var(--ink);color:var(--ink);padding:8px 10px}
 .aviso ul{margin:.3rem 0 0;padding-left:1.1rem}
 .aviso.caos{border-color:var(--green);color:var(--green)}
@@ -155,15 +160,62 @@ select:hover{border-color:var(--green-dim)}
 .lock[aria-pressed="true"] .closed{display:block}
 .lock[aria-pressed="true"] .open{display:none}
 .def{margin:0;font-size:.76rem;color:var(--muted)}
-footer{color:var(--muted);font-size:.78rem;border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+.creditos{margin:.6rem 0 0;font-size:.78rem;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:4px 0}
+.creditos b{color:var(--ink);font-weight:500}
+.sep{color:var(--line);margin-inline:.55em}
+.visitas{font-variant-numeric:tabular-nums;color:var(--green-dim)}
+footer{color:var(--muted);font-size:.78rem;border-top:1px solid var(--line);padding-top:14px}
 footer p{margin:0}
-footer .creditos{color:var(--ink)}
-footer .sep{color:var(--line);margin-inline:.4em}
 .lateral{display:flex;flex-direction:column;gap:24px}
-.como{font-size:.84rem;color:var(--muted);max-width:75ch}
-.como ol{margin:0;padding-left:1.3rem;display:flex;flex-direction:column;gap:6px}
+.seccion{font:400 1.35rem/1.2 var(--f-display);letter-spacing:.05em;color:var(--green);text-shadow:var(--glow);display:flex;align-items:baseline;gap:12px}
+.seccion::before{content:"//";color:var(--green-dim);text-shadow:none;font:400 .9rem/1 var(--f-body)}
+.bloque{display:flex;flex-direction:column;gap:16px}
+.como{font-size:.8rem;color:var(--muted);border:1px solid var(--line);background:var(--surface);padding:8px 12px}
+.como > summary{cursor:pointer;color:var(--green);list-style:none}
+.como > summary::-webkit-details-marker{display:none}
+.como > summary::before{content:"+ ";}
+.como[open] > summary::before{content:"− ";}
+.como ul{margin:8px 0 2px;padding-left:1.1rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:4px 24px}
 .como b{color:var(--ink);font-weight:500}
-.compartir-wrap > summary h2{font-size:.9rem}
+.det-intro{margin:-4px 0 0;font-size:.78rem;color:var(--muted)}
+.det-uso{margin:0;font-size:.74rem;color:var(--green-dim);border-top:1px dashed var(--line);padding-top:6px}
+.det-extracto{margin:6px 0 0;font-size:.8rem;line-height:1.55;color:var(--muted)}
+.sub-bloque{display:flex;flex-direction:column;gap:12px}
+.subtitulo{margin:.5rem 0 0;font:400 clamp(1rem,2.4vw,1.25rem)/1.35 var(--f-display);color:var(--ink);letter-spacing:.02em}
+.epigrafe{margin:1rem 0 0;padding-left:12px;border-left:2px solid var(--green-dim);max-width:62ch;font-size:.8rem;color:var(--muted)}
+.epigrafe p{margin:0;font-style:italic}
+.epigrafe footer{margin-top:4px;font-size:.72rem;color:var(--green-dim);border:0;padding:0;display:block}
+.epigrafe cite{font-style:normal}
+.switches{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.toggle{display:flex;align-items:flex-start;gap:12px;border:1px solid var(--line);background:var(--surface);padding:10px 12px;cursor:pointer}
+.toggle input{position:absolute;opacity:0;pointer-events:none}
+.pista{flex:none;width:36px;height:20px;border:1px solid var(--line);background:var(--bg);position:relative;margin-top:2px;transition:background .15s,border-color .15s}
+.pista::after{content:"";position:absolute;top:3px;left:3px;width:12px;height:12px;background:var(--muted);transition:transform .15s,background .15s}
+.toggle input:checked + .pista{border-color:var(--green);background:var(--surface-2)}
+.toggle input:checked + .pista::after{transform:translateX(16px);background:var(--green);box-shadow:var(--glow)}
+.toggle input:focus-visible + .pista{outline:2px solid var(--green);outline-offset:2px}
+.toggle:has(input:checked){border-color:var(--green-dim)}
+.toggle-txt{display:flex;flex-direction:column;gap:2px}
+.toggle-txt b{font-weight:700;color:var(--ink)}
+.toggle-txt small{font-size:.76rem;color:var(--muted)}
+.sub{margin:0;font:400 1rem/1.2 var(--f-display);letter-spacing:.06em;color:var(--ink)}
+.sub-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.sub-head .btn.mini[data-tip]::after{left:auto;right:0}
+.campos-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 32px;align-items:start}
+@media (max-width:880px){.campos-grid{display:flex;flex-direction:column;gap:24px}.campos-grid .controls{display:contents}}
+.instr{border-top:1px dashed var(--line);padding-top:10px;font-size:.82rem}
+.instr summary{cursor:pointer;color:var(--green);letter-spacing:.04em}
+.instr summary::marker{color:var(--green)}
+.instr dl{margin:10px 0 0;display:flex;flex-direction:column;gap:10px}
+.instr dt{color:var(--ink);font-weight:500}
+.instr dt span{color:var(--green-dim);font-weight:400}
+.instr dd{margin:2px 0 0;color:var(--muted)}
+.instr dd q{display:block;margin-top:3px;color:var(--ink);font-style:italic;quotes:"«" "»"}
+.lista-reglas{margin:0;padding-left:1.1rem;color:var(--muted);font-size:.82rem;display:flex;flex-direction:column;gap:4px}
+.btn.share{border-color:var(--green);color:var(--green)}
+.btn.share[aria-expanded="true"]{background:var(--green);color:var(--on-green)}
+.btn.share svg{vertical-align:-2px;margin-right:6px}
+.compartir-panel{border:1px dashed var(--green-dim);padding:4px 12px 12px}
 
 /* Compartir */
 .compartir{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:.76rem;color:var(--muted);padding-top:10px}
@@ -176,7 +228,7 @@ a.btn{text-decoration:none;display:inline-block}
 @media print{
   :root{--bg:#fff;--surface:#fff;--ink:#000;--muted:#333;--line:#999;--green:#000;--green-dim:#333}
   body{padding:0;font-size:11pt}
-  #lluvia,.cursor,.lede,.controls,.lateral,.actions,.compartir-wrap,.como-wrap,.btn,#aviso,.tags,footer{display:none!important}
+  #lluvia,.cursor,.lede,.creditos,.epigrafe,.modo-sec,.det-intro,.det-uso,.opciones,.como,.tags-hint,.guardadas-sec,.reglas-sec,.instr,.actions,.compartir-panel,.btn,#aviso,.tags,footer,.det-extracto{display:none!important}
   .grid{display:block}
   h1{text-shadow:none;font-size:22pt}
   .masthead{padding-block:0 8pt}
@@ -195,117 +247,122 @@ a.btn{text-decoration:none;display:inline-block}
   <header class="masthead">
     <canvas id="lluvia" aria-hidden="true"></canvas>
     <div>
-      <h1>Máquina de Ideación<span class="cursor" aria-hidden="true"></span></h1>
-      <p class="lede">Aleatoriza combinaciones de <b>técnica narrativa</b>, <b>género</b>, <b>tono</b>, <b>extensión</b> y <b>personaje</b> para escribir, con detonadores creativos de Wikipedia y Wikimedia Commons.</p>
+      <h1>Cuento.exe<span class="cursor" aria-hidden="true"></span></h1>
+      <p class="subtitulo">Máquina de ideación narrativa para salir del bloqueo creativo.</p>
+      <blockquote class="epigrafe" lang="en">
+        <p>“And here are you a writer, infinitely original and endowed with a sensibility that is charming though beyond the understanding of the vulgar.”</p>
+        <footer>Tristan Tzara, 1920, <cite>How to Make a Dadaist Poem</cite></footer>
+      </blockquote>
+      <p class="creditos">Creada por&nbsp;<a href="https://github.com/ViridianaLizardo" target="_blank" rel="noopener">Viridiana Lizardo</a><span class="sep">·</span>Desarrollada con la asistencia de Claude (Anthropic)<span class="sep" id="visitasSep" hidden>·</span><span class="visitas" id="visitas" hidden></span></p>
+      <p class="lede">Inspirada en los métodos dadaístas de creación por azar, pero con <b>instrucciones técnicas</b> (narrador, tiempo verbal, forma, estructura) en lugar de argumentos, para no alterar tu estilo. Suma una de las 36 <b>situaciones dramáticas</b> de Georges Polti (1895) y detonadores de Wikipedia y Commons.</p>
     </div>
   </header>
 
-  <details class="grupo como-wrap">
-    <summary><h2>Cómo usar</h2></summary>
-    <div class="panel como">
-      <ol>
-        <li><b>Aleatorizar</b> genera una idea nueva y cambia los detonadores creativos.</li>
-        <li>Abre los campos (A–D) para ver cada opción con su descripción. Elige un valor en su lista o pulsa el <b>candado</b> para fijarlo: los campos fijados se conservan al aleatorizar.</li>
-        <li>En <b>Modo</b> eliges entre <b>coherente</b>, que solo combina opciones compatibles, y <b>caos</b>, que ignora las reglas y marca las combinaciones imposibles como reto.</li>
-        <li>Los <b>detonadores creativos</b> son un artículo de Wikipedia y una imagen de Wikimedia Commons al azar. Úsalos como punto de partida o ignóralos; cada uno se cambia con su botón.</li>
-        <li><b>Guardar</b> conserva la idea en <b>Ideas guardadas</b>, solo en este navegador. <b>Compartir</b> genera un enlace que abre la misma idea, o la envía por WhatsApp, Telegram, correo o redes, o la imprime como PDF.</li>
-      </ol>
-    </div>
-  </details>
-
   <main>
+    <details class="como" id="como">
+      <summary>¿Cómo se usa?</summary>
+      <ul>
+        <li><b>Aleatorizar</b> crea una idea nueva con sus detonadores.</li>
+        <li>Toca una <b>etiqueta</b> para fijarla; en <b>Opciones</b> puedes elegir valores concretos.</li>
+        <li>Los <b>interruptores</b> activan el modo caos, el personaje y la situación dramática.</li>
+        <li><b>Guarda</b> o <b>comparte</b> la idea. Los detonadores son opcionales.</li>
+      </ul>
+    </details>
+
+    <section class="modo-sec" aria-label="Modo">
+        <div class="sub-bloque">
+          <h3 class="sub">Modo</h3>
+          <div class="switches">
+            <label class="toggle"><input type="checkbox" id="swCaos" role="switch"><span class="pista" aria-hidden="true"></span><span class="toggle-txt"><b>Modo caos</b><small>Ignora las reglas de compatibilidad (al final de la página); las combinaciones imposibles se marcan como reto.</small></span></label>
+            <label class="toggle"><input type="checkbox" id="swPersonaje" role="switch" checked><span class="pista" aria-hidden="true"></span><span class="toggle-txt"><b>Incluir personaje</b><small>Añade a la idea un párrafo con un personaje.</small></span></label>
+            <label class="toggle"><input type="checkbox" id="swSituacion" role="switch" checked><span class="pista" aria-hidden="true"></span><span class="toggle-txt"><b>Sugerir situación</b><small>Añade una de las 36 situaciones dramáticas que Georges Polti catalogó en 1895 a partir del teatro clásico y moderno. Orienta la trama sin dictar el argumento.</small></span></label>
+          </div>
+        </div>
+    </section>
+
     <div class="grid">
       <section class="card-col" aria-label="Idea">
         <article class="ficha">
           <div class="ficha-head"><span>Idea</span><span id="num">Nº 001</span></div>
           <p class="consigna" id="consigna" aria-live="polite">Cargando opciones…</p>
-          <ul class="tags" id="tags"></ul>
+          <ul class="tags" id="tags" aria-label="Valores de la idea: toca uno para fijarlo"></ul>
+          <p class="tags-hint">Toca una etiqueta para fijarla o soltarla.</p>
+          <details class="instr">
+            <summary>Instrucciones detalladas</summary>
+            <dl id="instrList"></dl>
+          </details>
           <div id="aviso"></div>
           <p class="solo-print" id="printEnlace"></p>
         </article>
         <div class="actions">
           <button class="btn primary" id="btnSortear" type="button" data-tip="Genera una idea y detonadores nuevos; los campos con candado se conservan">Aleatorizar</button>
+          <button class="btn share" id="btnCompartirToggle" type="button" aria-expanded="false" aria-controls="panelCompartir" data-tip="Enlace a esta idea, mensajería, redes o PDF"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Compartir</button>
           <button class="btn" id="btnCopiar" type="button" data-tip="Copia la idea y los detonadores al portapapeles, con sus enlaces">Copiar</button>
           <button class="btn" id="btnGuardar" type="button" data-tip="Guarda la idea y sus detonadores en «Ideas guardadas», en este navegador">Guardar</button>
-          <button class="btn" id="btnSoltar" type="button" data-tip="Quita todos los candados para que la próxima idea cambie todos los campos">Soltar todo</button>
         </div>
-        <details class="grupo compartir-wrap">
-          <summary><h2>Compartir</h2></summary>
+        <div class="compartir-panel" id="panelCompartir" hidden>
           <div class="compartir">
             <button class="btn mini" type="button" id="btnEnlace" data-tip="Copia un enlace que abre esta misma idea con sus detonadores">Copiar enlace</button>
             <button class="btn mini" type="button" id="btnShare" hidden data-tip="Abre el menú para compartir de tu dispositivo">Compartir…</button>
             <a class="btn mini" id="shWhatsapp" target="_blank" rel="noopener" data-tip="Enviar por WhatsApp">WhatsApp</a>
-            <a class="btn mini" id="shTelegram" target="_blank" rel="noopener" data-tip="Enviar por Telegram">Telegram</a>
             <a class="btn mini" id="shCorreo" target="_blank" rel="noopener" data-tip="Abrir un correo con la idea">Correo</a>
-            <a class="btn mini" id="shX" target="_blank" rel="noopener" data-tip="Publicar el enlace en X (el texto completo no cabe)">X</a>
-            <a class="btn mini" id="shBluesky" target="_blank" rel="noopener" data-tip="Publicar el enlace en Bluesky (el texto completo no cabe)">Bluesky</a>
             <button class="btn mini" type="button" id="btnImprimir" data-tip="Imprime la idea o guárdala como PDF desde el diálogo de impresión">Imprimir / PDF</button>
           </div>
-        </details>
+        </div>
       </section>
 
       <section class="detonadores" aria-label="Detonadores creativos">
         <h2>Detonadores creativos</h2>
+        <p class="det-intro">Opcionales. Incorpóralos a tu texto como quieras: en una escena, un personaje, un lugar o un objeto.</p>
         <div class="det">
-          <div class="det-head"><span>Artículo · Wikipedia</span><button class="btn mini" type="button" id="otroWiki" data-tip="Cambia solo el artículo">Otro</button></div>
-          <p class="det-body" id="detWiki"></p>
+          <div class="det-head"><span>Tema · Wikipedia</span><button class="btn mini" type="button" id="otroWiki" data-tip="Cambia solo el artículo">Otro</button></div>
+          <div class="det-body" id="detWiki"></div>
+          <p class="det-uso">Usa este tema en alguna escena de tu texto.</p>
         </div>
         <div class="det">
           <div class="det-head"><span>Imagen · Wikimedia Commons</span><button class="btn mini" type="button" id="otroImg" data-tip="Cambia solo la imagen">Otra</button></div>
           <div id="detImg"></div>
+          <p class="det-uso">Usa esta imagen como escenario, objeto o atmósfera de alguna escena.</p>
         </div>
       </section>
     </div>
 
-    <div class="grid">
-      <section class="controls" aria-label="Campos">
-        <details class="grupo"><summary><h2>A · Técnica narrativa</h2><span class="resumen">6 campos</span></summary><div class="panel" id="grupoA"></div></details>
-        <details class="grupo"><summary><h2>B · Género y tono</h2><span class="resumen">2 campos</span></summary><div class="panel" id="grupoB"></div></details>
-        <details class="grupo"><summary><h2>C · Extensión</h2><span class="resumen">1 campo</span></summary><div class="panel" id="grupoD"></div></details>
-        <details class="grupo"><summary><h2>D · Personaje</h2><span class="resumen">5 campos</span></summary>
-          <div class="panel">
-            <label class="switch"><input type="checkbox" id="swPersonaje" checked> Incluir un personaje en la idea</label>
-            <div class="panel" id="grupoP"></div>
+    <section class="bloque opciones" aria-labelledby="h-opciones">
+      <h2 class="seccion" id="h-opciones">Opciones</h2>
+      <div class="sub-bloque">
+        <div class="sub-head"><h3 class="sub">Campos</h3><button class="btn mini" id="btnSoltar" type="button" data-tip="Quita todos los candados para que la próxima idea cambie todos los campos">Soltar todos los candados</button></div>
+        <div class="campos-grid">
+          <div class="controls">
+            <details class="grupo" style="order:1"><summary><h2>A · Técnica narrativa</h2><span class="resumen">6 campos</span></summary><div class="panel" id="grupoA"></div></details>
+            <details class="grupo" style="order:3"><summary><h2>C · Extensión</h2><span class="resumen">1 campo</span></summary><div class="panel" id="grupoD"></div></details>
           </div>
-        </details>
-      </section>
-
-      <section class="lateral">
-        <details class="grupo">
-          <summary><h2>Modo</h2><span class="resumen" id="resumenModo">Coherente</span></summary>
-          <div class="panel">
-            <div class="modos" role="radiogroup" aria-label="Modo">
-              <div class="modo">
-                <input type="radio" name="modo" id="modoCoherente" value="coherente" checked>
-                <label for="modoCoherente"><strong>Coherente</strong><span>Aplica las reglas de compatibilidad: persona, narrador, técnica y forma siempre pueden convivir en el mismo texto. Si fijas campos incompatibles, te avisa.</span></label>
-              </div>
-              <div class="modo">
-                <input type="radio" name="modo" id="modoCaos" value="caos">
-                <label for="modoCaos"><strong>Caos</strong><span>Elige cada campo por separado, sin reglas y con la misma probabilidad para todas las opciones. Pueden salir combinaciones imposibles, que se marcan como reto.</span></label>
-              </div>
-            </div>
-            <details class="reglas">
-              <summary>Reglas de compatibilidad del modo coherente</summary>
-              <ul id="listaReglas"></ul>
+          <div class="controls">
+            <details class="grupo" style="order:2"><summary><h2>B · Género y tono</h2><span class="resumen">2 campos</span></summary><div class="panel" id="grupoB"></div></details>
+            <details class="grupo" style="order:4"><summary><h2>D · Personaje</h2><span class="resumen">6 campos</span></summary>
+              <div class="panel" id="grupoP"></div>
             </details>
+            <details class="grupo" style="order:5"><summary><h2>E · Situación dramática</h2><span class="resumen">1 campo</span></summary><div class="panel" id="grupoS"></div></details>
           </div>
-        </details>
+        </div>
+      </div>
+    </section>
 
-        <details class="grupo">
-          <summary><h2>Ideas guardadas</h2><span class="resumen" id="resumenG">0</span></summary>
-          <div class="panel guardadas">
-            <div class="guardadas-bar"><button class="btn mini" type="button" id="btnDescargar" data-tip="Descarga todas las ideas guardadas como archivo de texto">Descargar .txt</button></div>
-            <ul class="lista-g" id="listaG"></ul>
-            <p class="vacio" id="notaG"></p>
-          </div>
-        </details>
-      </section>
-    </div>
+    <details class="grupo guardadas-sec">
+      <summary><h2>Ideas guardadas</h2><span class="resumen" id="resumenG">0</span></summary>
+      <div class="panel guardadas">
+        <div class="guardadas-bar"><button class="btn mini" type="button" id="btnDescargar" data-tip="Descarga todas las ideas guardadas como archivo de texto">Descargar .txt</button></div>
+        <ul class="lista-g" id="listaG"></ul>
+        <p class="vacio" id="notaG"></p>
+      </div>
+    </details>
+
+    <details class="grupo reglas-sec">
+      <summary><h2>Reglas de compatibilidad</h2><span class="resumen">modo coherente</span></summary>
+      <div class="panel"><ul class="lista-reglas" id="listaReglas"></ul></div>
+    </details>
   </main>
 
   <footer>
-    <p class="creditos">Creada por Viridiana Lizardo<span class="sep">·</span><a href="https://github.com/ViridianaLizardo" target="_blank" rel="noopener">GitHub</a><span class="sep">·</span><a id="correo" href="#">Correo</a></p>
-    <p>Desarrollada con la asistencia de Claude (Anthropic).</p>
     <p><a href="https://github.com/ViridianaLizardo/ideas_escritura/blob/main/LICENSE" target="_blank" rel="noopener">Licencia MIT</a><span class="sep">·</span><a href="https://github.com/ViridianaLizardo/ideas_escritura/issues" target="_blank" rel="noopener">Sugerencias y errores</a><span class="sep">·</span><a href="https://github.com/ViridianaLizardo/ideas_escritura" target="_blank" rel="noopener">Código fuente</a></p>
   </footer>
 </div>
@@ -318,9 +375,9 @@ const WIKI_API = "https://es.wikipedia.org/api/rest_v1/page/random/summary";
 
 let DATOS, campo;
 const valor = (cid, vid) => campo[cid].valores.find(v => v.id === vid);
-const state = { sel:{}, locked:{}, modo:"coherente", usePersonaje:true, wiki:undefined, img:undefined, n:1, animando:false };
+const state = { sel:{}, locked:{}, modo:"coherente", usePersonaje:true, useSituacion:true, wiki:undefined, img:undefined, n:1, animando:false };
 const $ = id => document.getElementById(id);
-const activos = () => DATOS.campos.filter(c => c.grupo !== "P" || state.usePersonaje).map(c => c.id);
+const activos = () => DATOS.campos.filter(c => (c.grupo !== "P" || state.usePersonaje) && (c.grupo !== "S" || state.useSituacion)).map(c => c.id);
 const soloActivos = sel => Object.fromEntries(activos().map(c => [c, sel[c]]));
 
 function pick(cid){
@@ -331,9 +388,11 @@ function pick(cid){
   return vals[vals.length-1].id;
 }
 
-function violaciones(s){
+// soloDuras: evalúa solo las reglas marcadas "siempre", que se aplican también en modo caos.
+function violaciones(s, soloDuras = false){
   const out = [];
   for (const r of DATOS.reglas){
+    if (soloDuras && !r.siempre) continue;
     const aplica = Object.entries(r.si).every(([c, vs]) => s[c] !== undefined && vs.includes(s[c]));
     if (!aplica) continue;
     const malReq = r.req && Object.entries(r.req).some(([c, vs]) => s[c] !== undefined && !vs.includes(s[c]));
@@ -344,14 +403,24 @@ function violaciones(s){
 }
 
 // Sortea los campos no fijados. Con soloSiInvalido conserva la selección actual si ya es válida.
-function sortear(soloSiInvalido = false){
+const valida = s => violaciones(soloActivosDe(s), state.modo === "caos").length === 0;
+const soloActivosDe = s => Object.fromEntries(activos().map(c => [c, s[c]]));
+// Si una regla "siempre" choca con campos fijados, suelta los campos de esa regla salvo el que se acaba de cambiar.
+function soltarConflictosDuros(s, cambiado){
+  for (const r of DATOS.reglas){
+    if (!r.siempre || !violaciones(soloActivosDe(s), true).includes(r.msg)) continue;
+    for (const c of [...Object.keys(r.si), ...Object.keys(r.req || {}), ...Object.keys(r.no || {})]) if (c !== cambiado) state.locked[c] = false;
+  }
+}
+function sortear(soloSiInvalido = false, cambiado = null){
   const ids = activos();
   const cur = Object.fromEntries(ids.map(c => [c, state.sel[c] ?? pick(c)]));
-  if (soloSiInvalido && (state.modo === "caos" || violaciones(cur).length === 0)){ state.sel = {...state.sel, ...cur}; return; }
+  if (soloSiInvalido && valida(cur)){ state.sel = {...state.sel, ...cur}; return; }
+  soltarConflictosDuros(cur, cambiado);
   let s = cur;
   for (let i = 0; i < 4000; i++){
     s = Object.fromEntries(ids.map(c => [c, state.locked[c] ? state.sel[c] : pick(c)]));
-    if (state.modo === "caos" || violaciones(s).length === 0) break;
+    if (valida(s)) break;
   }
   state.sel = {...state.sel, ...s};
 }
@@ -367,13 +436,13 @@ async function nuevoWiki(){
     clearTimeout(t);
     if (!res.ok) throw new Error(res.status);
     const j = await res.json();
-    state.wiki = { title: j.title, url: j.content_urls?.desktop?.page ?? wikiUrl(j.title) };
+    state.wiki = { title: j.title, url: j.content_urls?.desktop?.page ?? wikiUrl(j.title), extract: j.extract || "" };
   } catch (e) {
     const lista = DATOS.wikipedia_respaldo || [];
     const t = lista[Math.floor(Math.random() * lista.length)];
     state.wiki = t ? { title: t, url: wikiUrl(t) } : null;
   }
-  renderDet();
+  renderDet(); completarExtracto();
 }
 
 const conTiempo = (url, ms = 6000) => {
@@ -395,7 +464,7 @@ async function nuevaImagen(){
       if (p){
         const ii = p.imageinfo[0];
         const nombre = p.title.replace(/^[^:]+:/, "").replace(/\.[a-z0-9]+$/i, "").replace(/_/g, " ");
-        state.img = { title: nombre, src: ii.thumburl || ii.url, url: ii.descriptionurl };
+        state.img = { title: nombre, file: p.title.replace(/^[^:]+:/, ""), src: ii.thumburl || ii.url, url: ii.descriptionurl };
       }
     }
     if (!state.img) throw new Error("sin imagen");
@@ -408,22 +477,45 @@ async function nuevaImagen(){
 /* Enlace permanente: ?c=<estado en base64url> */
 const b64enc = str => btoa(String.fromCharCode(...new TextEncoder().encode(str))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 const b64dec = str => new TextDecoder().decode(Uint8Array.from(atob(str.replace(/-/g, "+").replace(/_/g, "/")), ch => ch.charCodeAt(0)));
+// Enlace corto: i = índice de cada campo en base 36 (un carácter por campo, en el orden de ideas.json);
+// p=0 sin personaje; w = título del artículo; f = archivo de Commons.
 function enlacePermanente(){
-  const estado = { v:1, s: soloActivos(state.sel), p: state.usePersonaje ? 1 : 0, n: state.n,
-    w: state.wiki ? state.wiki.title : null, i: state.img?.title ? { title: state.img.title, src: state.img.src, url: state.img.url } : null };
-  return location.origin + location.pathname + "?c=" + b64enc(JSON.stringify(estado));
+  const q = new URLSearchParams();
+  q.set("i", DATOS.campos.map(c => Math.max(0, c.valores.findIndex(v => v.id === state.sel[c.id])).toString(36)).join(""));
+  if (!state.usePersonaje) q.set("p", "0");
+  if (!state.useSituacion) q.set("s", "0");
+  if (state.wiki?.title) q.set("w", state.wiki.title);
+  if (state.img?.file) q.set("f", state.img.file);
+  return location.origin + location.pathname + "?" + q.toString();
 }
+const imagenDesdeArchivo = f => ({ file: f, title: f.replace(/\.[a-z0-9]+$/i, "").replace(/_/g, " "),
+  src: "https://commons.wikimedia.org/wiki/Special:FilePath/" + encodeURIComponent(f) + "?width=800",
+  url: "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(f.replace(/ /g, "_")) });
 function cargarDesdeEnlace(){
-  const c = new URLSearchParams(location.search).get("c");
+  const q = new URLSearchParams(location.search), c = q.get("c"), idx = q.get("i");
+  if (idx){
+    try {
+      state.usePersonaje = q.get("p") !== "0"; $("swPersonaje").checked = state.usePersonaje;
+      state.useSituacion = q.get("s") !== "0"; $("swSituacion").checked = state.useSituacion;
+      DATOS.campos.forEach((cp, k) => { const v = cp.valores[parseInt(idx[k] ?? "", 36)]; if (v) state.sel[cp.id] = v.id; });
+      sortear(true);
+      const w = q.get("w"), f = q.get("f");
+      state.wiki = w ? { title: w, url: wikiUrl(w) } : null;
+      state.img = f ? imagenDesdeArchivo(f) : { title:null, src:null, url: COMMONS_RANDOM };
+      render(); renderDet(); completarExtracto();
+      history.replaceState(null, "", location.pathname);
+      return true;
+    } catch { return false; }
+  }
   if (!c) return false;
-  try {
+  try {   // formato anterior (?c=…), se conserva para que los enlaces viejos sigan funcionando
     const e = JSON.parse(b64dec(c));
     state.usePersonaje = !!e.p; $("swPersonaje").checked = state.usePersonaje;
     for (const [cid, vid] of Object.entries(e.s || {})) if (campo[cid] && valor(cid, vid)) state.sel[cid] = vid;
     sortear(true);                       // completa campos faltantes o inválidos
     state.n = Number(e.n) || 1;
     state.wiki = e.w ? (typeof e.w === "string" ? { title: e.w, url: wikiUrl(e.w) } : e.w) : null; state.img = e.i || { title:null, src:null, url: COMMONS_RANDOM };
-    render(); renderDet();
+    render(); renderDet(); completarExtracto();
     history.replaceState(null, "", location.pathname);   // la siguiente idea no arrastra el enlace
     return true;
   } catch { return false; }
@@ -433,16 +525,19 @@ function cargarDesdeEnlace(){
 function actualizarCompartir(){
   if (!DATOS || state.wiki === undefined || state.img === undefined) return;
   const url = enlacePermanente(), texto = textoCompleto(textoConsigna(false), detonadoresActuales());
-  const corto = "Una idea para escribir, de la Máquina de Ideación:";
   const enc = encodeURIComponent;
   $("shWhatsapp").href = "https://wa.me/?text=" + enc(texto + "\n\n" + url);
-  $("shTelegram").href = "https://t.me/share/url?url=" + enc(url) + "&text=" + enc(texto);
   $("shCorreo").href = "mailto:?subject=" + enc("Idea para escribir") + "&body=" + enc(texto + "\n\n" + url);
-  $("shX").href = "https://twitter.com/intent/tweet?text=" + enc(corto) + "&url=" + enc(url);
-  $("shBluesky").href = "https://bsky.app/intent/compose?text=" + enc(corto + " " + url);
   $("printEnlace").textContent = "Enlace a esta idea: " + url;
 }
+// Con menú nativo (celulares) basta «Compartir…»; sin él (escritorio) se muestran WhatsApp y correo.
 $("btnShare").hidden = !navigator.share;
+$("shWhatsapp").hidden = $("shCorreo").hidden = !!navigator.share;
+$("btnCompartirToggle").addEventListener("click", () => {
+  const b = $("btnCompartirToggle"), abierto = b.getAttribute("aria-expanded") === "true";
+  b.setAttribute("aria-expanded", String(!abierto)); $("panelCompartir").hidden = abierto;
+  if (!abierto) actualizarCompartir();
+});
 $("btnShare").addEventListener("click", async () => {
   try { await navigator.share({ title: "Idea para escribir", text: textoCompleto(textoConsigna(false), detonadoresActuales()), url: enlacePermanente() }); } catch {}
 });
@@ -458,24 +553,68 @@ const enlace = (url, txt) => `<a href="${esc(url)}" target="_blank" rel="noopene
 function renderDet(){
   const cargando = `<span class="cargando">Buscando…</span>`;
   const w = state.wiki, im = state.img;
-  $("detWiki").innerHTML = w === undefined ? cargando : w ? enlace(w.url, "«" + esc(w.title) + "»") : "Sin artículo disponible.";
+  $("detWiki").innerHTML = w === undefined ? cargando : w ? enlace(w.url, "«" + esc(w.title) + "»") + (w.extract ? `<p class="det-extracto">${esc(recortar(w.extract, 320))}</p>` : "") : "Sin artículo disponible.";
   $("detImg").innerHTML = im === undefined ? `<p class="det-body">${cargando}</p>`
     : im.src ? `<a href="${esc(im.url)}" target="_blank" rel="noopener"><img class="det-img" src="${esc(im.src)}" alt="${esc(im.title)}" loading="lazy"></a><p class="det-body">${enlace(im.url, esc(im.title))}<small>Autoría y licencia en la página del archivo.</small></p>`
     : `<p class="det-body">${enlace(im.url, "Abrir una imagen aleatoria en Commons")}<small>La vista previa solo se muestra en la página publicada en GitHub.</small></p>`;
   actualizarCompartir();
 }
+function recortar(t, n){
+  if (t.length <= n) return t;
+  const corte = t.slice(0, n), fin = corte.lastIndexOf(" ");
+  return corte.slice(0, fin > n * .6 ? fin : n).replace(/[,;:.\s]+$/, "") + "…";
+}
+// Recupera el extracto de un artículo conocido (al abrir un enlace permanente o si viene de la lista de respaldo)
+async function completarExtracto(){
+  const w = state.wiki;
+  if (!w || w.extract !== undefined) return;
+  try {
+    const j = await conTiempo("https://es.wikipedia.org/api/rest_v1/page/summary/" + encodeURIComponent(w.title.replace(/ /g, "_")));
+    if (state.wiki === w){ w.extract = j.extract || ""; renderDet(); }
+  } catch { w.extract = ""; }
+}
 function nuevosDetonadores(){ nuevoWiki(); nuevaImagen(); }
 
 function esc(s){ return String(s).replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch])); }
+
+/* Párrafo del personaje, redactado como una oración.
+   Usa los id de ideas.json; si se agregan valores nuevos sin tratamiento aquí, se usa su frase "f". */
+const RANGO = { bebe:"menos de 2 años", infancia:"2 a 11 años", adolescencia:"12 a 17 años", juventud:"18 a 29 años", adultez:"30 a 59 años", vejez:"60 años o más" };
+const ETAPA = { bebe:"recién nacido", infancia:"infancia", adolescencia:"adolescencia", juventud:"juventud", adultez:"adultez", vejez:"vejez" };
+const NOMBRE = {
+  mujer:  { bebe:"una bebé", infancia:"una niña", adolescencia:"una adolescente", juventud:"una mujer joven", adultez:"una mujer adulta", vejez:"una mujer mayor", muerto:"una mujer" },
+  hombre: { bebe:"un bebé", infancia:"un niño", adolescencia:"un adolescente", juventud:"un hombre joven", adultez:"un hombre adulto", vejez:"un hombre mayor", muerto:"un hombre" },
+  nobinaria:  { bebe:"un bebé no binario", _:"una persona no binaria" },
+  indefinido: { bebe:"un bebé", _:"una persona de género no especificado" }
+};
+function frasePersonaje(){
+  const id = c => state.sel[c], f = c => valor(c, state.sel[c]).f;
+  const nat = id("p_naturaleza") ?? "humano", gen = id("p_genero"), edad = id("p_edad"), rol = id("p_rol");
+  let sujeto, compEdad = "";
+  if (nat === "humano" && NOMBRE[gen]){
+    sujeto = NOMBRE[gen][edad] ?? NOMBRE[gen]._;
+    if (RANGO[edad] && edad !== "bebe") compEdad = ` (${RANGO[edad]})`;
+  } else {
+    const g = valor("p_genero", gen);
+    sujeto = (valor("p_naturaleza", nat)?.fs ?? f("p_naturaleza")) + (g?.fg ? " " + g.fg : "");
+    if (ETAPA[edad]) compEdad = edad === "bebe" ? ", recién nacido" : `, en su ${ETAPA[edad]}`;
+  }
+  if (edad === "muerto") compEdad = " que ya ha muerto";
+  else if (!RANGO[edad]) compEdad = " " + f("p_edad");
+  const partes = [`Incluye a ${sujeto}${compEdad}`, f("p_rol")];
+  if (rol !== "ausente") partes.push(f("p_aparicion"));
+  return partes.join(", ") + (rol === "ausente" ? ", y " : " y ") + f("p_efecto") + ".";
+}
 
 function textoConsigna(html){
   const f = cid => valor(cid, state.sel[cid]).f;
   let s = `Escribe ${f("ext")} ${f("genero")}, ${f("tono")}. `
         + `Nárralo ${f("persona")}, ${f("narrador")}, ${f("tiempo")}. `
         + `Escríbelo ${f("forma")}, ${f("tecnica")} y ${f("estructura")}.`;
-  if (state.usePersonaje){
-    const p = DATOS.campos.filter(c => c.grupo === "P").map(c => f(c.id));
-    s += "\n\nIncluye un personaje que sea: " + p.slice(0, -1).join("; ") + "; y " + p[p.length - 1] + ".";
+  if (state.usePersonaje) s += "\n\n" + frasePersonaje();
+  if (state.useSituacion && campo.situacion){
+    const v = valor("situacion", state.sel.situacion);
+    s += `\n\nSituación dramática sugerida: ${v.t}.`;
   }
   return html ? esc(s) : s;
 }
@@ -499,16 +638,25 @@ function construirControles(){
     $("grupo" + c.grupo).appendChild(row);
     $("sel-" + c.id).addEventListener("change", e => {
       state.sel[c.id] = e.target.value; state.locked[c.id] = true;
-      sortear(true); render();
+      sortear(true, c.id); render();
     });
     $("lock-" + c.id).addEventListener("click", () => { state.locked[c.id] = !state.locked[c.id]; render(); });
   }
-  $("listaReglas").innerHTML = DATOS.reglas.map(r => `<li>${esc(r.msg)}</li>`).join("")
+  $("listaReglas").innerHTML = DATOS.reglas.map(r => `<li>${esc(r.msg)}${r.siempre ? " <b>(también en modo caos)</b>" : ""}</li>`).join("")
     + `<li>Las opciones con peso menor (futuro, condicional) salen con menos frecuencia.</li>`;
+}
+
+const DETALLE = ["narrador", "tiempo", "tecnica", "forma", "estructura", "situacion"];
+function renderInstrucciones(){
+  $("instrList").innerHTML = DETALLE.filter(c => campo[c] && activos().includes(c)).map(c => {
+    const v = valor(c, state.sel[c]);
+    return `<div><dt><span>${esc(campo[c].nombre)}:</span> ${esc(v.t)}</dt><dd>${esc(v.d ?? "")}${v.ej ? `<q>${esc(v.ej)}</q>` : ""}</dd></div>`;
+  }).join("");
 }
 
 function render(){
   for (const c of DATOS.campos){
+    if (valor(c.id, state.sel[c.id]) === undefined) state.sel[c.id] = pick(c.id);   // campos inactivos aún sin valor
     const v = valor(c.id, state.sel[c.id]);
     $("sel-" + c.id).value = state.sel[c.id];
     $("lock-" + c.id).setAttribute("aria-pressed", String(!!state.locked[c.id]));
@@ -517,9 +665,12 @@ function render(){
     $("def-" + c.id).hidden = !v.d;
   }
   $("grupoP").hidden = !state.usePersonaje;
+  $("grupoS").hidden = !state.useSituacion;
   $("num").textContent = "Nº " + String(state.n).padStart(3, "0");
   if (!state.animando) $("consigna").innerHTML = textoConsigna(true);
-  $("tags").innerHTML = activos().map(c => `<li class="${state.locked[c] ? "fixed" : ""}">${esc(valor(c, state.sel[c]).t)}</li>`).join("");
+  renderInstrucciones();
+  const candado = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>`;
+  $("tags").innerHTML = activos().map(c => `<li><button type="button" class="tag" data-c="${c}" aria-pressed="${!!state.locked[c]}" title="${esc(campo[c].nombre)}: ${state.locked[c] ? "fijado, toca para soltar" : "toca para fijar"}">${state.locked[c] ? candado : ""}${esc(valor(c, state.sel[c]).t)}</button></li>`).join("");
 
   actualizarCompartir();
   const v = violaciones(soloActivos(state.sel)), av = $("aviso");
@@ -590,7 +741,7 @@ function lineasDet(d){
   if (d.libro) l.push(`Libro: «${d.libro.title}», ${d.libro.autor} (${d.libro.url})`);
   return l;
 }
-const textoCompleto = (texto, d) => { const l = lineasDet(d); return texto + (l.length ? "\n\nDetonadores creativos:\n- " + l.join("\n- ") : ""); };
+const textoCompleto = (texto, d) => { const l = lineasDet(d); return texto + (l.length ? "\n\nDetonadores creativos (opcionales; úsalos en alguna escena):\n- " + l.join("\n- ") : ""); };
 const fechaLegible = iso => new Date(iso).toLocaleString("es-MX", {dateStyle:"medium", timeStyle:"short"});
 function renderGuardadas(){
   $("listaG").innerHTML = guardadas.map(g => {
@@ -641,13 +792,18 @@ $("btnCopiar").addEventListener("click", async () => {
   catch { const r = document.createRange(); r.selectNodeContents($("consigna")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Texto seleccionado"; }
   setTimeout(() => b.textContent = "Copiar", 1600);
 });
+$("tags").addEventListener("click", e => {
+  const b = e.target.closest(".tag"); if (!b) return;
+  state.locked[b.dataset.c] = !state.locked[b.dataset.c]; render();
+  document.querySelector(`.tag[data-c="${b.dataset.c}"]`)?.focus();
+});
+$("swSituacion").addEventListener("change", e => { state.useSituacion = e.target.checked; sortear(true); render(); });
 $("swPersonaje").addEventListener("change", e => { state.usePersonaje = e.target.checked; sortear(true); render(); });
-document.querySelectorAll('input[name="modo"]').forEach(r => r.addEventListener("change", e => {
-  state.modo = e.target.value; $("resumenModo").textContent = state.modo === "caos" ? "Caos" : "Coherente"; sortear(true); render();
-}));
+$("swCaos").addEventListener("change", e => { state.modo = e.target.checked ? "caos" : "coherente"; sortear(true); render(); });
 
-/* Correo (se arma al cargar para dificultar que lo recolecten bots) */
-(() => { const a = $("correo"), u = "lizardo.viridiana", d = "gmail.com"; a.href = "mailto:" + u + "@" + d; a.textContent = u + "@" + d; })();
+/* «Cómo usar» se abre solo en la primera visita */
+try { if (!localStorage.getItem("maquina-ideacion:visto")){ $("como").open = true; localStorage.setItem("maquina-ideacion:visto", "1"); } } catch { $("como").open = true; }
+
 
 /* GoatCounter: solo se carga si hay código configurado */
 if (GOATCOUNTER){
@@ -655,6 +811,11 @@ if (GOATCOUNTER){
   sc.async = true; sc.src = "https://gc.zgo.at/count.js";
   sc.dataset.goatcounter = "https://" + GOATCOUNTER + ".goatcounter.com/count";
   document.head.appendChild(sc);
+  // Total visible: requiere activar «Allow adding visitor counts on your website» en la configuración de GoatCounter
+  fetch("https://" + GOATCOUNTER + ".goatcounter.com/counter/" + encodeURIComponent(location.pathname) + ".json")
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(j => { $("visitas").textContent = j.count + " visitas"; $("visitas").hidden = false; $("visitasSep").hidden = false; })
+    .catch(() => {});
 }
 
 lluvia();

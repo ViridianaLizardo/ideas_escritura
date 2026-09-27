@@ -253,8 +253,8 @@ a.btn{text-decoration:none;display:inline-block}
         <p>“Y es usted un escritor infinitamente original y de una sensibilidad hechizante, aunque incomprendida del vulgo.”</p>
         <footer>Tristan Tzara, 1920, <cite>Para hacer un poema dadaísta</cite></footer>
       </blockquote>
-      <p class="creditos">Creada por&nbsp;<a href="https://github.com/ViridianaLizardo" target="_blank" rel="noopener">Viridiana Lizardo</a><span class="sep">·</span>Desarrollada con la asistencia de Claude (Anthropic)<span class="sep" id="visitasSep" hidden>·</span><span class="visitas" id="visitas" hidden></span></p>
-      <p class="lede">Inspirada en los métodos dadaístas de creación por azar, pero con <b>instrucciones técnicas</b> (narrador, tiempo verbal, forma, estructura). Además, sugiere un personaje y propone una de las <b>36 situaciones dramáticas</b> de Georges Polti (1895). Finalmente obtiene temas de Wikipedia e Imágenes de Wiki Commons que pueden detonar ideas para la historia.</p>
+      <p class="creditos">Creada por&nbsp;<a href="https://github.com/ViridianaLizardo" target="_blank" rel="noopener">Viridiana Lizardo</a><span class="sep">·</span>Interfaz desarrollada con la asistencia de Claude (Anthropic)<span class="sep" id="visitasSep" hidden>·</span><span class="visitas" id="visitas" hidden></span></p>
+      <p class="lede"><b>Generador de ideas narrativas.</b>Inspirado en los métodos dadaístas de creación por azar, indica  instrucciones técnicas, sugiere un personaje y propone una situación dramática. Finalmente obtiene temas de Wikipedia e Imágenes de Wiki Commons que pueden detonar ideas para la historia.</p>
     </div>
   </header>
 
@@ -273,9 +273,9 @@ a.btn{text-decoration:none;display:inline-block}
         <div class="sub-bloque">
           <h3 class="sub">Modo</h3>
           <div class="switches">
-            <label class="toggle"><input type="checkbox" id="swCaos" role="switch"><span class="pista" aria-hidden="true"></span><span class="toggle-txt"><b>Modo caos</b><small>Puede generar combinaciones retadoras que ignoran las reglas de compatibilidad entre técnicas de narración.</small></span></label>
-            <label class="toggle"><input type="checkbox" id="swPersonaje" role="switch" checked><span class="pista" aria-hidden="true"></span><span class="toggle-txt"><b>Incluir personaje</b><small>Añade a la idea un párrafo con un personaje generado al azar.</small></span></label>
-            <label class="toggle"><input type="checkbox" id="swSituacion" role="switch" checked><span class="pista" aria-hidden="true"></span><span class="toggle-txt"><b>Sugerir situación</b><small>Añade una de las 36 situaciones dramáticas que Georges Polti catalogó en 1895 a partir del teatro clásico y moderno.</small></span></label>
+            <label class="toggle"><input type="checkbox" id="swCaos" role="switch"><span class="pista" aria-hidden="true"></span><span class="toggle-txt"><b>Modo caos</b><small>Puede generar combinaciones imposibles o retadoras que ignoran las reglas de compatibilidad de las técnicas de narración.</small></span></label>
+            <label class="toggle"><input type="checkbox" id="swPersonaje" role="switch" checked><span class="pista" aria-hidden="true"></span><span class="toggle-txt"><b>Personaje</b><small>Añade a la idea un párrafo con un personaje generado al azar.</small></span></label>
+            <label class="toggle"><input type="checkbox" id="swSituacion" role="switch" checked><span class="pista" aria-hidden="true"></span><span class="toggle-txt"><b>Situación</b><small>Añade una de las 36 situaciones dramáticas que Georges Polti catalogó en 1895.</small></span></label>
           </div>
         </div>
     </section>
@@ -317,7 +317,7 @@ a.btn{text-decoration:none;display:inline-block}
         <div class="det">
           <div class="det-head"><span>Tema · Wikipedia</span><button class="btn mini" type="button" id="otroWiki" data-tip="Cambia solo el artículo">Otro</button></div>
           <div class="det-body" id="detWiki"></div>
-          <p class="det-uso">Usa este tema en alguna escena de tu texto.</p>
+          <p class="det-uso">Incluye este tema en tu texto.</p>
         </div>
         <div class="det">
           <div class="det-head"><span>Imagen · Wikimedia Commons</span><button class="btn mini" type="button" id="otroImg" data-tip="Cambia solo la imagen">Otra</button></div>
